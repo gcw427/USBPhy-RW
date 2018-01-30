@@ -1,0 +1,12 @@
+C:\Users\Danza\Desktop\STMSMI\PhyReader\USBPhyRW\USBPhyRW\bin\Debug\USBPhyRW.exe
+C:\Users\Danza\Desktop\STMSMI\PhyReader\USBPhyRW\USBPhyRW\bin\Debug\USBPhyRW.pdb
+C:\Users\Danza\Desktop\STMSMI\PhyReader\USBPhyRW\USBPhyRW\obj\Debug\USBPhyRW.csprojResolveAssemblyReference.cache
+C:\Users\Danza\Desktop\STMSMI\PhyReader\USBPhyRW\USBPhyRW\obj\Debug\USBPhyRW.MainDialog.resources
+C:\Users\Danza\Desktop\STMSMI\PhyReader\USBPhyRW\USBPhyRW\obj\Debug\USBPhyRW.Properties.Resources.resources
+C:\Users\Danza\Desktop\STMSMI\PhyReader\USBPhyRW\USBPhyRW\obj\Debug\USBPhyRW.csproj.GenerateResource.Cache
+C:\Users\Danza\Desktop\STMSMI\PhyReader\USBPhyRW\USBPhyRW\obj\Debug\USBPhyRW.exe
+C:\Users\Danza\Desktop\STMSMI\PhyReader\USBPhyRW\USBPhyRW\obj\Debug\USBPhyRW.pdb
+C:\Users\Danza\Desktop\STMSMI\PhyReader\USBPhyRW\USBPhyRW\obj\Debug\USBPhyRW.USBsettings.resources
+C:\Users\Danza\Desktop\STMSMI\PhyReader\USBPhyRW\USBPhyRW\obj\Debug\USBPhyRW.USBBoard.resources
+C:\Users\Danza\Desktop\STMSMI\PhyReader\USBPhyRW\USBPhyRW\obj\Debug\USBPhyRW.USBPhyRW.resources
+C:\Users\Danza\Desktop\STMSMI\PhyReader\USBPhyRW\USBPhyRW\bin\Debug\USBPhyRW.exe.config
