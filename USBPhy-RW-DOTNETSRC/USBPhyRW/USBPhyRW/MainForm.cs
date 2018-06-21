@@ -30,10 +30,11 @@ namespace USBPhyRW
             
             InitializeComponent();
             loadProgramcfg();
-            upRegNote(0x00);   //显示默认的reg0 的reg notice
+            regNotice.Text = "RTK USB PhyRW Tool For Internal USE.";  //显示默认的reg notice
             phyValuebox.Leave += new EventHandler(phyValuebox_Leave); //生textbox leave 用以自动update BCD code
             phyAddrbox.Leave += new EventHandler(phyAddrbox_leave); //生leave 用以自动补全至1byte的数据
             phyRegbox.Leave += new EventHandler(phyRegbox_leave); //生leave 用以自动补全至1byte的数据
+            devAdbox.Leave += new EventHandler(devAdbox_leave);
 
         }
         //log4net dll -> logreg
@@ -109,6 +110,66 @@ namespace USBPhyRW
         {
             chipTypeBox.Text = ReadIniKeys(ChipSec, ChipSet, cfgPath);
             chipids = Convert.ToUInt16(ReadIniKeys(ChipSec, chipid, cfgPath));
+            if (chipids < 0x0b) //100/1000 Phy
+            {
+                DEVAD.Visible = false;
+                devAdbox.Visible = false;
+                note4.Visible = false;
+                //上移各个lable和box/note位置适配窗口
+                regAddr.Location = new Point(24, 53);
+                phyRegbox.Location = new Point(92, 50);
+                note2.Location = new Point(178, 53);
+                note2.Text = "(decimal)";
+
+                regValue.Location = new Point(24, 80);
+                phyValuebox.Location = new Point(92, 77);
+                note3.Location = new Point(178, 80);
+
+                writePhy.Location = new Point(254, 73);
+
+                iOLTestToolStripMenuItem.Enabled = true;
+                loopBackToolStripMenuItem.Enabled = true;
+                patchCodeToolStripMenuItem.Enabled = true;
+                dumpAllRegToolStripMenuItem.Enabled = true;
+                usefulCommandToolStripMenuItem.Enabled = true;
+                phyRegbox.MaxLength = 2;
+                phyRegbox.Text = "00";
+                phyValuebox.Text = "0000";
+
+            }
+            else if (chipids == 0x0b) //2.5G PHY
+            {
+                DEVAD.Visible = true;
+                devAdbox.Visible = true;
+                note4.Visible = true;
+
+                DEVAD.Location = new Point(24, 53);
+                devAdbox.Location = new Point(92, 50);
+                note4.Location = new Point(178, 53);
+
+                regAddr.Location = new Point(24, 80);
+                phyRegbox.Location = new Point(92, 77);
+                note2.Location = new Point(178, 80);
+                note2.Text = "(hex)";
+
+                regValue.Location = new Point(24, 109);
+                phyValuebox.Location = new Point(92, 106);
+                note3.Location = new Point(178, 109);
+
+                writePhy.Location = new Point(254, 93);
+
+                iOLTestToolStripMenuItem.Enabled = false;
+                loopBackToolStripMenuItem.Enabled = false;
+                patchCodeToolStripMenuItem.Enabled = false;
+                dumpAllRegToolStripMenuItem.Enabled = false;
+                usefulCommandToolStripMenuItem.Enabled = false;
+
+                phyRegbox.MaxLength = 4;
+                phyRegbox.Text = "0000";
+                phyValuebox.Text = "0000";
+
+            }
+
             //载入程序配置时 读取当下usb dongle的VID PID
             gobalPID = Convert.ToUInt16((ReadIniKeys(USBsec, USBpid, cfgPath)), 16);
             golbalVID = Convert.ToUInt16((ReadIniKeys(USBsec, USBvid, cfgPath)), 16);
@@ -207,7 +268,18 @@ namespace USBPhyRW
             data[1] = 0x02; //normal rw
             data[2] = 0x00; //read
             data[3] = Convert.ToByte(phyAddrbox.Text);
-            data[4] = Convert.ToByte(phyRegbox.Text);
+            if (chipids == 0x0b)
+            {
+                UInt16 regvalue = Convert.ToUInt16(phyRegbox.Text.Substring(0, 4), 16);
+                data[4] = (byte)((regvalue >> 8) & 0xff);
+                data[7] = (byte)(regvalue & 0xff);
+            }
+            else if (chipids < 0x0b)
+            {
+                data[4] = Convert.ToByte(phyRegbox.Text);
+            }
+            data[5] = Convert.ToByte(devAdbox.Text);
+            data[6] = Convert.ToByte(chipids);//TBD
             report r = new report(0, data);
             usbPhyRWHID.Write(r);
         }
@@ -219,11 +291,23 @@ namespace USBPhyRW
             data[1] = 0x02; //normal rw
             data[2] = 0x01; //write
             data[3] = Convert.ToByte(phyAddrbox.Text);
-            data[4] = Convert.ToByte(phyRegbox.Text);
+            // data[4] = Convert.ToByte(phyRegbox.Text);
+            if (chipids == 0x0b)
+            {
+                UInt16 regvalue = Convert.ToUInt16(phyRegbox.Text.Substring(0, 4), 16);
+                data[4] = (byte)((regvalue >> 8) & 0xff);
+                data[9] = (byte)(regvalue & 0xff);
+            }
+            else if (chipids < 0x0b)
+            {
+                data[4] = Convert.ToByte(phyRegbox.Text);
+            }
             //UInt16 phyvalue = Convert.ToUInt16(phyValuebox.Text.Substring(2, 4), 16);
             UInt16 phyvalue = Convert.ToUInt16(phyValuebox.Text.Substring(0, 4), 16);
             data[5] = (byte)((phyvalue >> 8) & 0xff);
             data[6] = (byte)(phyvalue & 0xff);
+            data[7] = Convert.ToByte(devAdbox.Text);
+            data[8] = Convert.ToByte(chipids); //TBD
             report r = new report(0, data);
             usbPhyRWHID.Write(r);
         }
@@ -258,9 +342,9 @@ namespace USBPhyRW
         //read phy click
         private void readPhy_Click(object sender, EventArgs e)
         {
-            if ((false == (isValueCorr(phyAddrbox.Text))) || (false == (isValueCorr(phyRegbox.Text))))
+            if (false == (isValueCorr(phyAddrbox.Text)))
             {
-                MessageBox.Show("PHYADDR/REGADDR format error.\n" + "Please Check PHYADDR/REGADDR format.", "USBPhyRW Warning", MessageBoxButtons.RetryCancel);
+                MessageBox.Show("PHYADDR format error.\n" + "Please Check PHYADDR format.", "USBPhyRW Warning", MessageBoxButtons.RetryCancel);
                 return;
             }
             rdPhyReg();
@@ -270,116 +354,154 @@ namespace USBPhyRW
         //write phy click
         private void writePhy_Click(object sender, EventArgs e)
         {
-            if ((false == (isValueCorr(phyAddrbox.Text))) || (false == (isValueCorr(phyRegbox.Text))))
+            if ((false == (isValueCorr(phyAddrbox.Text))) )
             {
-                MessageBox.Show("PHYADDR/REGADDR format error.\n" + "Please Check PHYADDR/REGADDR format.", "USBPhyRW Warning", MessageBoxButtons.RetryCancel);
+                MessageBox.Show("PHYADDR format error.\n" + "Please Check PHYADDR format.", "USBPhyRW Warning", MessageBoxButtons.RetryCancel);
                 return;
             }
             wrPhyReg();
         }
         //update reg notice box when reg textbox leave happed
-        public void upRegNote(UInt16 phyvalue)
+        public void upRegNote(UInt16 phyaddr )
         {
-            switch (phyvalue)
+            if (chipids < 0x0b)
             {
-                case 0x00: regNotice.Text = "BMCR-Basic Mode Control Register Address 0x00" + "\r\n" + "  " +
-                        "bit15: RESET(1,phy reset   0,normal operation)" + "\r\n" + "  " +
-                        "bit14: LOOPBACK(0/1, Disable/Enable pcs loopback mode)" + "\r\n" + "  " +
-                        "bit13: SPEED[0](speed select bit0)" + "\r\n" + "  " +
-                        "bit12: ANE(0/1, Disable/Enable Auto-Negotiation)" + "\r\n" + "  " +
-                        "bit11: PWD(0/1,Normal/PowerDown mode)" + "\r\n" + "  " +
-                        "bit10: ISOLATE(0/1,Normal/Isolate RGMII)" + "\r\n" + "  " +
-                        "bit09: RestartAN(0/1,Normal/Reset Auto-Negotiation)" + "\r\n" + "  " +
-                        "bit08: Duplex(0/1,Half/Full Duplex mode)" + "\r\n" + "  " +
-                        "bit07: Collision test(0/1 Normal/Collision Test enable)" + "\r\n" + "  " +
-                        "bit06: SPEED[1](speed select bit1)" + "\r\n" + "  " +
-                        "bit05: Uni-Dir enabel" + "\r\n" + "  " +
-                        "bit04-bit00: RSVD";
-                    break;
-                case 0x01: regNotice.Text = "BMSR-Basic Mode Status Register Address 0x01" + "\r\n" + "  " +
-                        "bit15: 100BaseT4(0,100Base-T4 capability always 0)" + "\r\n" + "  " +
-                        "bit14: 100Base-TX(full)   bit13: 100Base-TX(half)" + "\r\n" + "  " +
-                        "bit12: 10Base-T(full)       bit11: 10Base-T(half)" + "\r\n" + "  " +
-                        "bit10: 10Base-T2(full)     bit09: 10Base-T2(half)" + "\r\n" + "  " +
-                        "bit08: 1000Base-T Extended Status    bit07: Uni-directional ability" + "\r\n" + "  " +
-                        "bit06: Premble Susppression   bit05: AN complete" + "\r\n" + "  " +
-                        "bit04: Remote fault    bit03: AN ability   bit02: Link Status" + "\r\n" + "  " +
-                        "bit01: Jabber Detect   bit00: Extended Capability";
-                    break;
-                case 0x02: regNotice.Text = "PHY Identifier Register 1 Address 02" + "\r\n" + "  " +
-                        "bit15-bit0: OUI_MSB";
-                    break;
-                case 0x03: regNotice.Text = "PHY Identifier Register 2 Address 03" + "\r\n" + "  " +
-                        "bit15-bit10: OUI LSB" + "\r\n" + "  " +
-                        "bit09-bit04: Model Number" + "\r\n" + "  " +
-                        "bit03-bit00: Revision Number";
-                    break;
-                case 0x04: regNotice.Text = "ANAR-Auto Negotiation Advertising Register Address 04" + "\r\n" + "  " +
-                        "bit15: NextPage    bit14: RSVD    bit13: Remote Fault    bit12:RSVD" + "\r\n" + "  " +
-                        "bit11: Asymmetric pause   bit10: PAUSE   bit09 100Base-T4" + "\r\n" + "  " +
-                        "bit08: 100Base-TX(full)   bit07: 100Base-TX(half)   bit06: 10Base-T(full)   bit05: 10Base-T(half)" + "\r\n" + "  " +
-                        "bit04-bit00: Selector Field";
-                    break;
-                case 0x05: regNotice.Text = "ANLPAR-Auto Negotitation Link Partner Ability Register Address 05" + "\r\n" + "  " +
-                        "bit15: Next Page   bit14 ACK   bit13: Remote Fault   bit12: RSVD" + "\r\n" + "  " +
-                        "bit11-bit05: Technology Ability Filed" + "\r\n" + "  " +
-                        "bit04-bit00: Selector Field";
-                    break;
-                case 0x06: regNotice.Text = "ANER-Auto Negotitation Expansion Register Address 06" + "\r\n" + "  " +
-                        "bit15-bit05 RSVD" + "\r\n" + "  " +
-                        "bit06: RX NP location ability" + "\r\n" + "  " +
-                        "bit05: RX NP location" + "\r\n" + "  " +
-                        "bit04: Parallel Detection Fault" + "\r\n" + "  " +
-                        "bit03: Link Partner Next Page able" + "\r\n" + "  " +
-                        "bit02: Local Next Page able" + "\r\n" + "  " +
-                        "bit01: Page Received" + "\r\n" + "  " +
-                        "bit00: Link Partner Auto-Negotitation capable";
-                    break;
-                case 0x07: regNotice.Text = "ANNPTR-Auto Negotitation Next Page Transmit  Regisrer Address 07" + "\r\n" + "  " +
-                        "bit15: Next Page   bit14:RSVD   bit13:Message Page" + "\r\n" + "  " +
-                        "bit12: Acknowledge2   bit11: Toggle" + "\r\n" + "  " +
-                        "bit10-bit00: Message/Unformatted Field";
-                    break;
-                case 0x08: regNotice.Text = "ANNPRR-Auto Negotitation Next Page Receive Register Address08" + "\r\n" + "  " +
-                        "bit15: Next Page   bit14: Acknowledge   bit13: Message Page" + "\r\n" + "  " +
-                        "bit12: Acknowledge2   bit11: Toggle" + "\r\n" + "  " +
-                        "bit10-bit00: Message/Unformatted Field";
-                    break;
-                case 0x09: regNotice.Text = "GBCR-100Base-T Control Register Address 0x09" + "\r\n" + "  " +
-                        "bit15-bit13: Text Mode   bit12: Master/Slave Manual Configuration Enable" + "\r\n" + "  " +
-                        "bit11: Master/Slave Configuration Value" + "\r\n" + "  " +
-                        "bit10: Port Type   bit09: 1000Base-T Full Duplex" + "\r\n" + "  " +
-                        "bit08-bit00: RSVD";
-                    break;
-                case  0x0A: regNotice.Text = "GBSR-100Base-T Status Register Address 0x0a" + "\r\n" + "  " +
-                        "bit15: Master/Slave Configuration Fault" + "\r\n" + "  " +
-                        "bit14: Master/Slave Configuration Resolution" + "\r\n" + "  " +
-                        "bit13: Local Receiver Status" + "\r\n" + "  " +
-                        "bit12: Remote Receiver Status" + "\r\n" + "  " +
-                        "bit11: Link Partner 1000Base-T Full Duplex Capability" + "\r\n" + "  " +
-                        "bit10: Link Partner 1000Base-T Half Duplex Capability" + "\r\n" + "  " +
-                        "bit09-bit08: RSVD   bit07-bit00: Idle Error Count";
-                    break;
-                case 0x0D: regNotice.Text = "MACR-MMD Access Control Register Address 0x0D" + "\r\n" + "  " +
-                        "bit15-bit14: Function" + "\r\n" + "  " +
-                         "bit13:bit05: RSVD" + "\r\n" + "  " +
-                        "bit04-bit00: DEVAD";
-                    break;
-                case 0x0E: regNotice.Text = "MAADR-MMD Access Address Data Register Address 0x0E" + "\r\n" + "  " +
-                        "bit15-bit00: Address Data" + "\r\n" + "     " +
-                        "(bit15-bit14=00 MMD DEVAD's address register)" + "\r\n" + "  " +
-                        "(bit14-bit14=01/10/11 MMD DEVAD's data register ad indicated by  the contents of  its address register)";
-                    break;
-                case 0x0F: regNotice.Text = "GBESR-1000Base-T Extended Status Register Address 0x0F" + "\r\n" + "  " +
-                        "bit15: 1000Base-X Full duplex capable" + "\r\n" + "  " +
-                        "bit14: 1000Base-X Half duplex capable" + "\r\n" + "  " +
-                        "bit13: 1000Base-T Full duplex capable" + "\r\n" + "  " +
-                        "bit12: 1000Base-T Half duplex capable" + "\r\n" + "  " +
-                        "bit11-bit00: RSVD";
-                    break;
-                default:
-                    regNotice.Text = " ";
-                    break;
+                switch (phyaddr)
+                {
+                    case 0x00:
+                        regNotice.Text = "BMCR-Basic Mode Control Register Address 0x00" + "\r\n" + "  " +
+                     "bit15: RESET(1,phy reset   0,normal operation)" + "\r\n" + "  " +
+                     "bit14: LOOPBACK(0/1, Disable/Enable pcs loopback mode)" + "\r\n" + "  " +
+                     "bit13: SPEED[0](speed select bit0)" + "\r\n" + "  " +
+                     "bit12: ANE(0/1, Disable/Enable Auto-Negotiation)" + "\r\n" + "  " +
+                     "bit11: PWD(0/1,Normal/PowerDown mode)" + "\r\n" + "  " +
+                     "bit10: ISOLATE(0/1,Normal/Isolate RGMII)" + "\r\n" + "  " +
+                     "bit09: RestartAN(0/1,Normal/Reset Auto-Negotiation)" + "\r\n" + "  " +
+                     "bit08: Duplex(0/1,Half/Full Duplex mode)" + "\r\n" + "  " +
+                     "bit07: Collision test(0/1 Normal/Collision Test enable)" + "\r\n" + "  " +
+                     "bit06: SPEED[1](speed select bit1)" + "\r\n" + "  " +
+                     "bit05: Uni-Dir enabel" + "\r\n" + "  " +
+                     "bit04-bit00: RSVD";
+                        break;
+                    case 0x01:
+                        regNotice.Text = "BMSR-Basic Mode Status Register Address 0x01" + "\r\n" + "  " +
+                     "bit15: 100BaseT4(0,100Base-T4 capability always 0)" + "\r\n" + "  " +
+                     "bit14: 100Base-TX(full)   bit13: 100Base-TX(half)" + "\r\n" + "  " +
+                     "bit12: 10Base-T(full)       bit11: 10Base-T(half)" + "\r\n" + "  " +
+                     "bit10: 10Base-T2(full)     bit09: 10Base-T2(half)" + "\r\n" + "  " +
+                     "bit08: 1000Base-T Extended Status    bit07: Uni-directional ability" + "\r\n" + "  " +
+                     "bit06: Premble Susppression   bit05: AN complete" + "\r\n" + "  " +
+                     "bit04: Remote fault    bit03: AN ability   bit02: Link Status" + "\r\n" + "  " +
+                     "bit01: Jabber Detect   bit00: Extended Capability";
+                        break;
+                    case 0x02:
+                        regNotice.Text = "PHY Identifier Register 1 Address 02" + "\r\n" + "  " +
+                     "bit15-bit0: OUI_MSB";
+                        break;
+                    case 0x03:
+                        regNotice.Text = "PHY Identifier Register 2 Address 03" + "\r\n" + "  " +
+                     "bit15-bit10: OUI LSB" + "\r\n" + "  " +
+                     "bit09-bit04: Model Number" + "\r\n" + "  " +
+                     "bit03-bit00: Revision Number";
+                        break;
+                    case 0x04:
+                        regNotice.Text = "ANAR-Auto Negotiation Advertising Register Address 04" + "\r\n" + "  " +
+                     "bit15: NextPage    bit14: RSVD    bit13: Remote Fault    bit12:RSVD" + "\r\n" + "  " +
+                     "bit11: Asymmetric pause   bit10: PAUSE   bit09 100Base-T4" + "\r\n" + "  " +
+                     "bit08: 100Base-TX(full)   bit07: 100Base-TX(half)   bit06: 10Base-T(full)   bit05: 10Base-T(half)" + "\r\n" + "  " +
+                     "bit04-bit00: Selector Field";
+                        break;
+                    case 0x05:
+                        regNotice.Text = "ANLPAR-Auto Negotitation Link Partner Ability Register Address 05" + "\r\n" + "  " +
+                     "bit15: Next Page   bit14 ACK   bit13: Remote Fault   bit12: RSVD" + "\r\n" + "  " +
+                     "bit11-bit05: Technology Ability Filed" + "\r\n" + "  " +
+                     "bit04-bit00: Selector Field";
+                        break;
+                    case 0x06:
+                        regNotice.Text = "ANER-Auto Negotitation Expansion Register Address 06" + "\r\n" + "  " +
+                     "bit15-bit05 RSVD" + "\r\n" + "  " +
+                     "bit06: RX NP location ability" + "\r\n" + "  " +
+                     "bit05: RX NP location" + "\r\n" + "  " +
+                     "bit04: Parallel Detection Fault" + "\r\n" + "  " +
+                     "bit03: Link Partner Next Page able" + "\r\n" + "  " +
+                     "bit02: Local Next Page able" + "\r\n" + "  " +
+                     "bit01: Page Received" + "\r\n" + "  " +
+                     "bit00: Link Partner Auto-Negotitation capable";
+                        break;
+                    case 0x07:
+                        regNotice.Text = "ANNPTR-Auto Negotitation Next Page Transmit  Regisrer Address 07" + "\r\n" + "  " +
+                     "bit15: Next Page   bit14:RSVD   bit13:Message Page" + "\r\n" + "  " +
+                     "bit12: Acknowledge2   bit11: Toggle" + "\r\n" + "  " +
+                     "bit10-bit00: Message/Unformatted Field";
+                        break;
+                    case 0x08:
+                        regNotice.Text = "ANNPRR-Auto Negotitation Next Page Receive Register Address08" + "\r\n" + "  " +
+                     "bit15: Next Page   bit14: Acknowledge   bit13: Message Page" + "\r\n" + "  " +
+                     "bit12: Acknowledge2   bit11: Toggle" + "\r\n" + "  " +
+                     "bit10-bit00: Message/Unformatted Field";
+                        break;
+                    case 0x09:
+                        regNotice.Text = "GBCR-100Base-T Control Register Address 0x09" + "\r\n" + "  " +
+                     "bit15-bit13: Text Mode   bit12: Master/Slave Manual Configuration Enable" + "\r\n" + "  " +
+                     "bit11: Master/Slave Configuration Value" + "\r\n" + "  " +
+                     "bit10: Port Type   bit09: 1000Base-T Full Duplex" + "\r\n" + "  " +
+                     "bit08-bit00: RSVD";
+                        break;
+                    case 0x0A:
+                        regNotice.Text = "GBSR-100Base-T Status Register Address 0x0a" + "\r\n" + "  " +
+                    "bit15: Master/Slave Configuration Fault" + "\r\n" + "  " +
+                    "bit14: Master/Slave Configuration Resolution" + "\r\n" + "  " +
+                    "bit13: Local Receiver Status" + "\r\n" + "  " +
+                    "bit12: Remote Receiver Status" + "\r\n" + "  " +
+                    "bit11: Link Partner 1000Base-T Full Duplex Capability" + "\r\n" + "  " +
+                    "bit10: Link Partner 1000Base-T Half Duplex Capability" + "\r\n" + "  " +
+                    "bit09-bit08: RSVD   bit07-bit00: Idle Error Count";
+                        break;
+                    case 0x0D:
+                        regNotice.Text = "MACR-MMD Access Control Register Address 0x0D" + "\r\n" + "  " +
+                     "bit15-bit14: Function" + "\r\n" + "  " +
+                      "bit13:bit05: RSVD" + "\r\n" + "  " +
+                     "bit04-bit00: DEVAD";
+                        break;
+                    case 0x0E:
+                        regNotice.Text = "MAADR-MMD Access Address Data Register Address 0x0E" + "\r\n" + "  " +
+                     "bit15-bit00: Address Data" + "\r\n" + "     " +
+                     "(bit15-bit14=00 MMD DEVAD's address register)" + "\r\n" + "  " +
+                     "(bit14-bit14=01/10/11 MMD DEVAD's data register ad indicated by  the contents of  its address register)";
+                        break;
+                    case 0x0F:
+                        regNotice.Text = "GBESR-1000Base-T Extended Status Register Address 0x0F" + "\r\n" + "  " +
+                     "bit15: 1000Base-X Full duplex capable" + "\r\n" + "  " +
+                     "bit14: 1000Base-X Half duplex capable" + "\r\n" + "  " +
+                     "bit13: 1000Base-T Full duplex capable" + "\r\n" + "  " +
+                     "bit12: 1000Base-T Half duplex capable" + "\r\n" + "  " +
+                     "bit11-bit00: RSVD";
+                        break;
+                    default:
+                        regNotice.Text = "RTK USB PhyRW Tool For Internal USE.";
+                        break;
+                }
+            }
+            if (chipids == 0x0b)
+            {
+                switch (phyaddr)
+                {
+                    case 0:
+                        if (devAdbox.Text == "01") regNotice.Text = "PMA/PMD Control 1 Register.";
+                        else if (devAdbox.Text == "07") regNotice.Text = "AN Control Register ";
+                        break;
+                    case 1:
+                        if (devAdbox.Text == "01") regNotice.Text = "PMA/PMD Status 1 Register";
+                        else if (devAdbox.Text == "03") regNotice.Text = "PCS Status 1 Register";
+                        else if (devAdbox.Text == "07") regNotice.Text = "AN Status Register";
+                         break;
+                    case 0xb:
+                        if (devAdbox.Text == "01") regNotice.Text = "PMA/PMD Extend Ability Register";
+                        break;
+                    default:
+                        regNotice.Text = "RTK USB PhyRW Tool For Internal USE.";
+                        break;
+                }
             }
         }
 
@@ -466,7 +588,7 @@ namespace USBPhyRW
 
         void phyAddrbox_leave(object sender, EventArgs e)
         {
-            if (phyAddrbox.Text.Length < 2)
+            if (phyAddrbox.Text.Length < 4)
             {
                 int len = phyAddrbox.Text.Length;
                 switch (len)
@@ -476,21 +598,53 @@ namespace USBPhyRW
                 }
             }
         }
-
+        void devAdbox_leave(object sender, EventArgs e)
+        {
+            if (chipids == 0x0b)
+            {
+                if (devAdbox.Text.Length < 2)
+                {
+                    int len = devAdbox.Text.Length;
+                    switch (len)
+                    {
+                        case 0: devAdbox.Text = "00"; break;
+                        case 1: devAdbox.Text = "0" + devAdbox.Text;break;
+                    }
+                }
+            }
+        }
         void phyRegbox_leave(object sender, EventArgs e)
         {
             if (phyRegbox.Text.Length < 2) phyRegbox.Text = "0" + phyRegbox.Text;
-            if (phyRegbox.Text.Length < 2)
+            if (chipids == 0x0b)
             {
-                int len = phyRegbox.Text.Length;
-                switch (len)
+                if (phyRegbox.Text.Length < 4)
                 {
-                    case 0:phyRegbox.Text = "00";break;
-                    case 1:phyRegbox.Text = "0" + phyRegbox.Text;break;
+                    int len = phyRegbox.Text.Length;
+                    switch (len)
+                    {
+                        case 0: phyRegbox.Text = "0000"; break;
+                        case 1: phyRegbox.Text = "000" + phyRegbox.Text; break;
+                        case 2: phyRegbox.Text = "00" + phyRegbox.Text; break;
+                        case 3: phyRegbox.Text = "0" + phyRegbox.Text; break;
+                    }
+                }
+             //   upRegNote(Convert.ToUInt16(phyRegbox.Text));
+            }
+            else if (chipids < 0x0b)
+            {
+                if (phyRegbox.Text.Length < 2)
+                {
+                    int len = phyRegbox.Text.Length;
+                    switch (len)
+                    {
+                        case 0: phyRegbox.Text = "00"; break;
+                        case 1: phyRegbox.Text = "0" + phyRegbox.Text; break;
+                    }
                 }
             }
             //显示reg提示
-            upRegNote(Convert.ToByte(phyRegbox.Text));
+           // upRegNote(Convert.ToUInt16(phyRegbox.Text));
         }
 
         //限定输入0-9 A-F a-f
@@ -501,12 +655,25 @@ namespace USBPhyRW
             else e.Handled = true;
         }
 
-        //限定输入0-9 和backspace
+        //限定输入0-9 A-F a-f 和backspace
         private void phyRegbox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if((e.KeyChar > 0x2F && e.KeyChar < 0x3A) || e.KeyChar == 0x08)
-                e.Handled = false;
-            else e.Handled = true;
+            /*    if((e.KeyChar > 0x2F && e.KeyChar < 0x3A) || e.KeyChar == 0x08)
+                    e.Handled = false;
+                else e.Handled = true;*/
+            if (chipids == 0x0b) //十六进制 只允许输入0-9 A-F
+            {
+                if ((e.KeyChar > 0x2F && e.KeyChar < 0x3A) || e.KeyChar == 0x08 || (e.KeyChar > 0x60 && e.KeyChar < 0x67) || (e.KeyChar > 0x40 && e.KeyChar < 0x47))
+                    e.Handled = false;
+                else e.Handled = true;
+            }
+            else if (chipids < 0x0b) //十进制 只允许输入数字 0-9
+            {
+                if ((e.KeyChar > 0x2F && e.KeyChar < 0x3A) || e.KeyChar == 0x08)
+                    e.Handled = false;
+                else e.Handled = true;
+            }
+
         }
 
         //限定输入0-9 和backspace
@@ -644,6 +811,15 @@ namespace USBPhyRW
         //08 -> 8201F-VD(8201FR-VD)
         //09 -> 8201E
         //0a ->	8211D
+        //0b -> 8226
+
+        private void rTL8226ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            chipTypeBox.Text = "RTL8226 2.5G";
+            chipids = 0x0b;
+            saveProgramcfg();
+            loadProgramcfg();
+        }
         private void rTL8201EToolStripMenuItem_Click(object sender, EventArgs e)
         {
             chipTypeBox.Text = "RTL8201E";
@@ -772,10 +948,18 @@ namespace USBPhyRW
             IolTest ioltest = new IolTest();
             ioltest.ShowDialog();
         }
+
+        private void patchCodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            closeDevice();
+            PatchCode patchcode = new PatchCode();
+            patchcode.ShowDialog();
+        }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             closeDevice();
             Application.Exit();
         }
+
     }
 }

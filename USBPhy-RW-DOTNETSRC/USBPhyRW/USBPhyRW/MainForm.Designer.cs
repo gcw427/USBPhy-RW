@@ -32,6 +32,7 @@
             this.menuItem = new System.Windows.Forms.MenuStrip();
             this.functionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectChipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rTL8226ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rTL8211FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rTL8211EToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rTL8211DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +43,7 @@
             this.rTL8201EToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iOLTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loopBackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.patchCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dumpAllRegToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usefulCommandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.packetGenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,30 +67,34 @@
             this.readPhy = new System.Windows.Forms.Button();
             this.writePhy = new System.Windows.Forms.Button();
             this.ReadWrite = new System.Windows.Forms.GroupBox();
+            this.note4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.devAdbox = new System.Windows.Forms.TextBox();
+            this.DEVAD = new System.Windows.Forms.Label();
             this.bit15 = new System.Windows.Forms.Label();
+            this.note3 = new System.Windows.Forms.Label();
             this.bit14 = new System.Windows.Forms.Label();
+            this.note2 = new System.Windows.Forms.Label();
             this.bit13 = new System.Windows.Forms.Label();
             this.bit12 = new System.Windows.Forms.Label();
-            this.bit8 = new System.Windows.Forms.Label();
-            this.bit9 = new System.Windows.Forms.Label();
-            this.bit10 = new System.Windows.Forms.Label();
+            this.bit0 = new System.Windows.Forms.Label();
             this.bit11 = new System.Windows.Forms.Label();
+            this.bit1 = new System.Windows.Forms.Label();
+            this.bit10 = new System.Windows.Forms.Label();
+            this.bit2 = new System.Windows.Forms.Label();
+            this.bit9 = new System.Windows.Forms.Label();
+            this.bit3 = new System.Windows.Forms.Label();
+            this.bit8 = new System.Windows.Forms.Label();
             this.bit4 = new System.Windows.Forms.Label();
+            this.bit7 = new System.Windows.Forms.Label();
             this.bit5 = new System.Windows.Forms.Label();
             this.bit6 = new System.Windows.Forms.Label();
-            this.bit7 = new System.Windows.Forms.Label();
-            this.bit0 = new System.Windows.Forms.Label();
-            this.bit1 = new System.Windows.Forms.Label();
-            this.bit2 = new System.Windows.Forms.Label();
-            this.bit3 = new System.Windows.Forms.Label();
             this.note1 = new System.Windows.Forms.Label();
-            this.note2 = new System.Windows.Forms.Label();
-            this.note3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.regNotice = new System.Windows.Forms.TextBox();
             this.regNoticeBar = new System.Windows.Forms.GroupBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.menuItem.SuspendLayout();
+            this.ReadWrite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,6 +118,7 @@
             this.selectChipToolStripMenuItem,
             this.iOLTestToolStripMenuItem,
             this.loopBackToolStripMenuItem,
+            this.patchCodeToolStripMenuItem,
             this.dumpAllRegToolStripMenuItem,
             this.usefulCommandToolStripMenuItem,
             this.packetGenToolStripMenuItem,
@@ -123,6 +130,7 @@
             // selectChipToolStripMenuItem
             // 
             this.selectChipToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rTL8226ToolStripMenuItem,
             this.rTL8211FToolStripMenuItem,
             this.rTL8211EToolStripMenuItem,
             this.rTL8211DToolStripMenuItem,
@@ -135,6 +143,14 @@
             this.selectChipToolStripMenuItem.Name = "selectChipToolStripMenuItem";
             this.selectChipToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.selectChipToolStripMenuItem.Text = "Select Chip";
+            // 
+            // rTL8226ToolStripMenuItem
+            // 
+            this.rTL8226ToolStripMenuItem.Image = global::USBPhyRW.Properties.Resources.chipsetlogo;
+            this.rTL8226ToolStripMenuItem.Name = "rTL8226ToolStripMenuItem";
+            this.rTL8226ToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.rTL8226ToolStripMenuItem.Text = "RTL8226 2.5G Series";
+            this.rTL8226ToolStripMenuItem.Click += new System.EventHandler(this.rTL8226ToolStripMenuItem_Click);
             // 
             // rTL8211FToolStripMenuItem
             // 
@@ -157,7 +173,7 @@
             this.rTL8211DToolStripMenuItem.Image = global::USBPhyRW.Properties.Resources.chipsetlogo;
             this.rTL8211DToolStripMenuItem.Name = "rTL8211DToolStripMenuItem";
             this.rTL8211DToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.rTL8211DToolStripMenuItem.Text = "RTL8211D Seriel";
+            this.rTL8211DToolStripMenuItem.Text = "RTL8211D Series";
             this.rTL8211DToolStripMenuItem.Click += new System.EventHandler(this.rTL8211DToolStripMenuItem_Click);
             // 
             // rTL8201FToolStripMenuItem
@@ -216,6 +232,14 @@
             this.loopBackToolStripMenuItem.Text = "LoopBack";
             this.loopBackToolStripMenuItem.Click += new System.EventHandler(this.loopBackToolStripMenuItem_Click);
             // 
+            // patchCodeToolStripMenuItem
+            // 
+            this.patchCodeToolStripMenuItem.Image = global::USBPhyRW.Properties.Resources.cmdl;
+            this.patchCodeToolStripMenuItem.Name = "patchCodeToolStripMenuItem";
+            this.patchCodeToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.patchCodeToolStripMenuItem.Text = "PatchCode";
+            this.patchCodeToolStripMenuItem.Click += new System.EventHandler(this.patchCodeToolStripMenuItem_Click);
+            // 
             // dumpAllRegToolStripMenuItem
             // 
             this.dumpAllRegToolStripMenuItem.Image = global::USBPhyRW.Properties.Resources.reglogo;
@@ -262,7 +286,7 @@
             // 
             this.usageToolStripMenuItem.Image = global::USBPhyRW.Properties.Resources.usage;
             this.usageToolStripMenuItem.Name = "usageToolStripMenuItem";
-            this.usageToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.usageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usageToolStripMenuItem.Text = "Usage";
             this.usageToolStripMenuItem.Click += new System.EventHandler(this.usageToolStripMenuItem_Click);
             // 
@@ -271,7 +295,7 @@
             this.advancedToolStripMenuItem.Enabled = false;
             this.advancedToolStripMenuItem.Image = global::USBPhyRW.Properties.Resources._lock;
             this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
-            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.advancedToolStripMenuItem.Text = "Advanced";
             // 
             // uSBSettingsToolStripMenuItem
@@ -313,7 +337,7 @@
             // 
             this.uSBBoardToolStripMenuItem.Image = global::USBPhyRW.Properties.Resources.usbboard;
             this.uSBBoardToolStripMenuItem.Name = "uSBBoardToolStripMenuItem";
-            this.uSBBoardToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.uSBBoardToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.uSBBoardToolStripMenuItem.Text = "USBBoard";
             this.uSBBoardToolStripMenuItem.Click += new System.EventHandler(this.uSBBoardToolStripMenuItem_Click);
             // 
@@ -321,7 +345,7 @@
             // 
             this.uSBPhyRWToolStripMenuItem.Image = global::USBPhyRW.Properties.Resources.usbsw;
             this.uSBPhyRWToolStripMenuItem.Name = "uSBPhyRWToolStripMenuItem";
-            this.uSBPhyRWToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.uSBPhyRWToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.uSBPhyRWToolStripMenuItem.Text = "USBPhyRW";
             this.uSBPhyRWToolStripMenuItem.Click += new System.EventHandler(this.uSBPhyRWToolStripMenuItem_Click);
             // 
@@ -343,9 +367,9 @@
             this.phyAddr.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phyAddr.Location = new System.Drawing.Point(36, 54);
             this.phyAddr.Name = "phyAddr";
-            this.phyAddr.Size = new System.Drawing.Size(59, 17);
+            this.phyAddr.Size = new System.Drawing.Size(56, 17);
             this.phyAddr.TabIndex = 3;
-            this.phyAddr.Text = "PhyAddr:";
+            this.phyAddr.Text = "PrtAddr:";
             // 
             // phyAddrbox
             // 
@@ -362,7 +386,8 @@
             // 
             this.regAddr.AutoSize = true;
             this.regAddr.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regAddr.Location = new System.Drawing.Point(36, 83);
+            this.regAddr.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.regAddr.Location = new System.Drawing.Point(24, 80);
             this.regAddr.Name = "regAddr";
             this.regAddr.Size = new System.Drawing.Size(61, 17);
             this.regAddr.TabIndex = 5;
@@ -371,19 +396,20 @@
             // phyRegbox
             // 
             this.phyRegbox.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phyRegbox.Location = new System.Drawing.Point(104, 80);
-            this.phyRegbox.MaxLength = 2;
+            this.phyRegbox.Location = new System.Drawing.Point(92, 77);
+            this.phyRegbox.MaxLength = 4;
             this.phyRegbox.Name = "phyRegbox";
             this.phyRegbox.Size = new System.Drawing.Size(80, 25);
             this.phyRegbox.TabIndex = 6;
-            this.phyRegbox.Text = "00";
+            this.phyRegbox.Text = "0000";
             this.phyRegbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phyRegbox_KeyPress);
             // 
             // regValue
             // 
             this.regValue.AutoSize = true;
             this.regValue.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regValue.Location = new System.Drawing.Point(36, 112);
+            this.regValue.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.regValue.Location = new System.Drawing.Point(24, 109);
             this.regValue.Name = "regValue";
             this.regValue.Size = new System.Drawing.Size(65, 17);
             this.regValue.TabIndex = 7;
@@ -392,10 +418,10 @@
             // phyValuebox
             // 
             this.phyValuebox.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phyValuebox.Location = new System.Drawing.Point(104, 109);
+            this.phyValuebox.Location = new System.Drawing.Point(92, 106);
             this.phyValuebox.MaxLength = 4;
             this.phyValuebox.Name = "phyValuebox";
-            this.phyValuebox.Size = new System.Drawing.Size(78, 25);
+            this.phyValuebox.Size = new System.Drawing.Size(80, 25);
             this.phyValuebox.TabIndex = 8;
             this.phyValuebox.Text = "0000";
             this.phyValuebox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phyValuebox_KeyPress);
@@ -412,7 +438,9 @@
             // 
             // writePhy
             // 
-            this.writePhy.Location = new System.Drawing.Point(266, 101);
+            this.writePhy.Font = new System.Drawing.Font("Calibri", 9F);
+            this.writePhy.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.writePhy.Location = new System.Drawing.Point(254, 73);
             this.writePhy.Name = "writePhy";
             this.writePhy.Size = new System.Drawing.Size(78, 33);
             this.writePhy.TabIndex = 10;
@@ -422,15 +450,84 @@
             // 
             // ReadWrite
             // 
+            this.ReadWrite.Controls.Add(this.note4);
+            this.ReadWrite.Controls.Add(this.pictureBox1);
+            this.ReadWrite.Controls.Add(this.devAdbox);
+            this.ReadWrite.Controls.Add(this.writePhy);
+            this.ReadWrite.Controls.Add(this.DEVAD);
+            this.ReadWrite.Controls.Add(this.bit15);
+            this.ReadWrite.Controls.Add(this.note3);
+            this.ReadWrite.Controls.Add(this.bit14);
+            this.ReadWrite.Controls.Add(this.note2);
+            this.ReadWrite.Controls.Add(this.bit13);
+            this.ReadWrite.Controls.Add(this.bit12);
+            this.ReadWrite.Controls.Add(this.bit0);
+            this.ReadWrite.Controls.Add(this.bit11);
+            this.ReadWrite.Controls.Add(this.phyValuebox);
+            this.ReadWrite.Controls.Add(this.bit1);
+            this.ReadWrite.Controls.Add(this.regValue);
+            this.ReadWrite.Controls.Add(this.bit10);
+            this.ReadWrite.Controls.Add(this.phyRegbox);
+            this.ReadWrite.Controls.Add(this.regAddr);
+            this.ReadWrite.Controls.Add(this.bit2);
+            this.ReadWrite.Controls.Add(this.bit9);
+            this.ReadWrite.Controls.Add(this.bit3);
+            this.ReadWrite.Controls.Add(this.bit8);
+            this.ReadWrite.Controls.Add(this.bit4);
+            this.ReadWrite.Controls.Add(this.bit7);
+            this.ReadWrite.Controls.Add(this.bit5);
+            this.ReadWrite.Controls.Add(this.bit6);
             this.ReadWrite.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.ReadWrite.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReadWrite.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.ReadWrite.Location = new System.Drawing.Point(12, 28);
             this.ReadWrite.Name = "ReadWrite";
-            this.ReadWrite.Size = new System.Drawing.Size(382, 175);
+            this.ReadWrite.Size = new System.Drawing.Size(382, 220);
             this.ReadWrite.TabIndex = 11;
             this.ReadWrite.TabStop = false;
             this.ReadWrite.Text = "General R/W";
+            // 
+            // note4
+            // 
+            this.note4.AutoSize = true;
+            this.note4.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.note4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.note4.Location = new System.Drawing.Point(178, 53);
+            this.note4.Name = "note4";
+            this.note4.Size = new System.Drawing.Size(60, 17);
+            this.note4.TabIndex = 54;
+            this.note4.Text = "(decimal)";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::USBPhyRW.Properties.Resources.banner;
+            this.pictureBox1.Location = new System.Drawing.Point(23, 141);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(335, 23);
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
+            // 
+            // devAdbox
+            // 
+            this.devAdbox.AcceptsReturn = true;
+            this.devAdbox.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.devAdbox.Location = new System.Drawing.Point(92, 50);
+            this.devAdbox.MaxLength = 2;
+            this.devAdbox.Name = "devAdbox";
+            this.devAdbox.Size = new System.Drawing.Size(80, 25);
+            this.devAdbox.TabIndex = 53;
+            this.devAdbox.Text = "00";
+            // 
+            // DEVAD
+            // 
+            this.DEVAD.AutoSize = true;
+            this.DEVAD.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DEVAD.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.DEVAD.Location = new System.Drawing.Point(24, 53);
+            this.DEVAD.Name = "DEVAD";
+            this.DEVAD.Size = new System.Drawing.Size(61, 17);
+            this.DEVAD.TabIndex = 52;
+            this.DEVAD.Text = "DevAddr:";
             // 
             // bit15
             // 
@@ -438,7 +535,7 @@
             this.bit15.BackColor = System.Drawing.Color.DarkOrange;
             this.bit15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bit15.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bit15.Location = new System.Drawing.Point(35, 168);
+            this.bit15.Location = new System.Drawing.Point(26, 169);
             this.bit15.Name = "bit15";
             this.bit15.Size = new System.Drawing.Size(17, 19);
             this.bit15.TabIndex = 29;
@@ -446,18 +543,40 @@
             this.bit15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bit15.Click += new System.EventHandler(this.bit15_Click);
             // 
+            // note3
+            // 
+            this.note3.AutoSize = true;
+            this.note3.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.note3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.note3.Location = new System.Drawing.Point(178, 109);
+            this.note3.Name = "note3";
+            this.note3.Size = new System.Drawing.Size(36, 17);
+            this.note3.TabIndex = 47;
+            this.note3.Text = "(hex)";
+            // 
             // bit14
             // 
             this.bit14.AutoSize = true;
             this.bit14.BackColor = System.Drawing.Color.DarkOrange;
             this.bit14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bit14.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bit14.Location = new System.Drawing.Point(57, 168);
+            this.bit14.Location = new System.Drawing.Point(48, 169);
             this.bit14.Name = "bit14";
             this.bit14.Size = new System.Drawing.Size(17, 19);
             this.bit14.TabIndex = 30;
             this.bit14.Text = "0";
             this.bit14.Click += new System.EventHandler(this.bit14_Click);
+            // 
+            // note2
+            // 
+            this.note2.AutoSize = true;
+            this.note2.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.note2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.note2.Location = new System.Drawing.Point(178, 80);
+            this.note2.Name = "note2";
+            this.note2.Size = new System.Drawing.Size(36, 17);
+            this.note2.TabIndex = 46;
+            this.note2.Text = "(hex)";
             // 
             // bit13
             // 
@@ -465,7 +584,7 @@
             this.bit13.BackColor = System.Drawing.Color.DarkOrange;
             this.bit13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bit13.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bit13.Location = new System.Drawing.Point(78, 168);
+            this.bit13.Location = new System.Drawing.Point(69, 169);
             this.bit13.Name = "bit13";
             this.bit13.Size = new System.Drawing.Size(17, 19);
             this.bit13.TabIndex = 31;
@@ -478,51 +597,25 @@
             this.bit12.BackColor = System.Drawing.Color.DarkOrange;
             this.bit12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bit12.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bit12.Location = new System.Drawing.Point(99, 168);
+            this.bit12.Location = new System.Drawing.Point(90, 169);
             this.bit12.Name = "bit12";
             this.bit12.Size = new System.Drawing.Size(17, 19);
             this.bit12.TabIndex = 32;
             this.bit12.Text = "0";
             this.bit12.Click += new System.EventHandler(this.bit12_Click);
             // 
-            // bit8
+            // bit0
             // 
-            this.bit8.AutoSize = true;
-            this.bit8.BackColor = System.Drawing.Color.Yellow;
-            this.bit8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bit8.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bit8.Location = new System.Drawing.Point(183, 168);
-            this.bit8.Name = "bit8";
-            this.bit8.Size = new System.Drawing.Size(17, 19);
-            this.bit8.TabIndex = 36;
-            this.bit8.Text = "0";
-            this.bit8.Click += new System.EventHandler(this.bit8_Click);
-            // 
-            // bit9
-            // 
-            this.bit9.AutoSize = true;
-            this.bit9.BackColor = System.Drawing.Color.Yellow;
-            this.bit9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bit9.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bit9.Location = new System.Drawing.Point(162, 168);
-            this.bit9.Name = "bit9";
-            this.bit9.Size = new System.Drawing.Size(17, 19);
-            this.bit9.TabIndex = 35;
-            this.bit9.Text = "0";
-            this.bit9.Click += new System.EventHandler(this.bit9_Click);
-            // 
-            // bit10
-            // 
-            this.bit10.AutoSize = true;
-            this.bit10.BackColor = System.Drawing.Color.Yellow;
-            this.bit10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bit10.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bit10.Location = new System.Drawing.Point(141, 168);
-            this.bit10.Name = "bit10";
-            this.bit10.Size = new System.Drawing.Size(17, 19);
-            this.bit10.TabIndex = 34;
-            this.bit10.Text = "0";
-            this.bit10.Click += new System.EventHandler(this.bit10_Click);
+            this.bit0.AutoSize = true;
+            this.bit0.BackColor = System.Drawing.Color.Yellow;
+            this.bit0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bit0.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bit0.Location = new System.Drawing.Point(340, 169);
+            this.bit0.Name = "bit0";
+            this.bit0.Size = new System.Drawing.Size(17, 19);
+            this.bit0.TabIndex = 44;
+            this.bit0.Text = "0";
+            this.bit0.Click += new System.EventHandler(this.bit0_Click);
             // 
             // bit11
             // 
@@ -530,12 +623,90 @@
             this.bit11.BackColor = System.Drawing.Color.Yellow;
             this.bit11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bit11.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bit11.Location = new System.Drawing.Point(119, 168);
+            this.bit11.Location = new System.Drawing.Point(110, 169);
             this.bit11.Name = "bit11";
             this.bit11.Size = new System.Drawing.Size(17, 19);
             this.bit11.TabIndex = 33;
             this.bit11.Text = "0";
             this.bit11.Click += new System.EventHandler(this.bit11_Click);
+            // 
+            // bit1
+            // 
+            this.bit1.AutoSize = true;
+            this.bit1.BackColor = System.Drawing.Color.Yellow;
+            this.bit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bit1.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bit1.Location = new System.Drawing.Point(320, 169);
+            this.bit1.Name = "bit1";
+            this.bit1.Size = new System.Drawing.Size(17, 19);
+            this.bit1.TabIndex = 43;
+            this.bit1.Text = "0";
+            this.bit1.Click += new System.EventHandler(this.bit1_Click);
+            // 
+            // bit10
+            // 
+            this.bit10.AutoSize = true;
+            this.bit10.BackColor = System.Drawing.Color.Yellow;
+            this.bit10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bit10.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bit10.Location = new System.Drawing.Point(132, 169);
+            this.bit10.Name = "bit10";
+            this.bit10.Size = new System.Drawing.Size(17, 19);
+            this.bit10.TabIndex = 34;
+            this.bit10.Text = "0";
+            this.bit10.Click += new System.EventHandler(this.bit10_Click);
+            // 
+            // bit2
+            // 
+            this.bit2.AutoSize = true;
+            this.bit2.BackColor = System.Drawing.Color.Yellow;
+            this.bit2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bit2.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bit2.Location = new System.Drawing.Point(300, 169);
+            this.bit2.Name = "bit2";
+            this.bit2.Size = new System.Drawing.Size(17, 19);
+            this.bit2.TabIndex = 42;
+            this.bit2.Text = "0";
+            this.bit2.Click += new System.EventHandler(this.bit2_Click);
+            // 
+            // bit9
+            // 
+            this.bit9.AutoSize = true;
+            this.bit9.BackColor = System.Drawing.Color.Yellow;
+            this.bit9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bit9.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bit9.Location = new System.Drawing.Point(153, 169);
+            this.bit9.Name = "bit9";
+            this.bit9.Size = new System.Drawing.Size(17, 19);
+            this.bit9.TabIndex = 35;
+            this.bit9.Text = "0";
+            this.bit9.Click += new System.EventHandler(this.bit9_Click);
+            // 
+            // bit3
+            // 
+            this.bit3.AutoSize = true;
+            this.bit3.BackColor = System.Drawing.Color.Yellow;
+            this.bit3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bit3.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bit3.Location = new System.Drawing.Point(280, 169);
+            this.bit3.Name = "bit3";
+            this.bit3.Size = new System.Drawing.Size(17, 19);
+            this.bit3.TabIndex = 41;
+            this.bit3.Text = "0";
+            this.bit3.Click += new System.EventHandler(this.bit3_Click);
+            // 
+            // bit8
+            // 
+            this.bit8.AutoSize = true;
+            this.bit8.BackColor = System.Drawing.Color.Yellow;
+            this.bit8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bit8.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bit8.Location = new System.Drawing.Point(174, 169);
+            this.bit8.Name = "bit8";
+            this.bit8.Size = new System.Drawing.Size(17, 19);
+            this.bit8.TabIndex = 36;
+            this.bit8.Text = "0";
+            this.bit8.Click += new System.EventHandler(this.bit8_Click);
             // 
             // bit4
             // 
@@ -543,12 +714,25 @@
             this.bit4.BackColor = System.Drawing.Color.DarkOrange;
             this.bit4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bit4.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bit4.Location = new System.Drawing.Point(267, 168);
+            this.bit4.Location = new System.Drawing.Point(258, 169);
             this.bit4.Name = "bit4";
             this.bit4.Size = new System.Drawing.Size(17, 19);
             this.bit4.TabIndex = 40;
             this.bit4.Text = "0";
             this.bit4.Click += new System.EventHandler(this.bit4_Click);
+            // 
+            // bit7
+            // 
+            this.bit7.AutoSize = true;
+            this.bit7.BackColor = System.Drawing.Color.DarkOrange;
+            this.bit7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bit7.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bit7.Location = new System.Drawing.Point(195, 169);
+            this.bit7.Name = "bit7";
+            this.bit7.Size = new System.Drawing.Size(17, 19);
+            this.bit7.TabIndex = 37;
+            this.bit7.Text = "0";
+            this.bit7.Click += new System.EventHandler(this.bit7_Click);
             // 
             // bit5
             // 
@@ -556,7 +740,7 @@
             this.bit5.BackColor = System.Drawing.Color.DarkOrange;
             this.bit5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bit5.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bit5.Location = new System.Drawing.Point(246, 168);
+            this.bit5.Location = new System.Drawing.Point(237, 169);
             this.bit5.Name = "bit5";
             this.bit5.Size = new System.Drawing.Size(17, 19);
             this.bit5.TabIndex = 39;
@@ -569,77 +753,12 @@
             this.bit6.BackColor = System.Drawing.Color.DarkOrange;
             this.bit6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.bit6.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bit6.Location = new System.Drawing.Point(225, 168);
+            this.bit6.Location = new System.Drawing.Point(216, 169);
             this.bit6.Name = "bit6";
             this.bit6.Size = new System.Drawing.Size(17, 19);
             this.bit6.TabIndex = 38;
             this.bit6.Text = "0";
             this.bit6.Click += new System.EventHandler(this.bit6_Click);
-            // 
-            // bit7
-            // 
-            this.bit7.AutoSize = true;
-            this.bit7.BackColor = System.Drawing.Color.DarkOrange;
-            this.bit7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bit7.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bit7.Location = new System.Drawing.Point(204, 168);
-            this.bit7.Name = "bit7";
-            this.bit7.Size = new System.Drawing.Size(17, 19);
-            this.bit7.TabIndex = 37;
-            this.bit7.Text = "0";
-            this.bit7.Click += new System.EventHandler(this.bit7_Click);
-            // 
-            // bit0
-            // 
-            this.bit0.AutoSize = true;
-            this.bit0.BackColor = System.Drawing.Color.Yellow;
-            this.bit0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bit0.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bit0.Location = new System.Drawing.Point(349, 168);
-            this.bit0.Name = "bit0";
-            this.bit0.Size = new System.Drawing.Size(17, 19);
-            this.bit0.TabIndex = 44;
-            this.bit0.Text = "0";
-            this.bit0.Click += new System.EventHandler(this.bit0_Click);
-            // 
-            // bit1
-            // 
-            this.bit1.AutoSize = true;
-            this.bit1.BackColor = System.Drawing.Color.Yellow;
-            this.bit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bit1.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bit1.Location = new System.Drawing.Point(329, 168);
-            this.bit1.Name = "bit1";
-            this.bit1.Size = new System.Drawing.Size(17, 19);
-            this.bit1.TabIndex = 43;
-            this.bit1.Text = "0";
-            this.bit1.Click += new System.EventHandler(this.bit1_Click);
-            // 
-            // bit2
-            // 
-            this.bit2.AutoSize = true;
-            this.bit2.BackColor = System.Drawing.Color.Yellow;
-            this.bit2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bit2.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bit2.Location = new System.Drawing.Point(309, 168);
-            this.bit2.Name = "bit2";
-            this.bit2.Size = new System.Drawing.Size(17, 19);
-            this.bit2.TabIndex = 42;
-            this.bit2.Text = "0";
-            this.bit2.Click += new System.EventHandler(this.bit2_Click);
-            // 
-            // bit3
-            // 
-            this.bit3.AutoSize = true;
-            this.bit3.BackColor = System.Drawing.Color.Yellow;
-            this.bit3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bit3.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bit3.Location = new System.Drawing.Point(289, 168);
-            this.bit3.Name = "bit3";
-            this.bit3.Size = new System.Drawing.Size(17, 19);
-            this.bit3.TabIndex = 41;
-            this.bit3.Text = "0";
-            this.bit3.Click += new System.EventHandler(this.bit3_Click);
             // 
             // note1
             // 
@@ -651,46 +770,17 @@
             this.note1.TabIndex = 45;
             this.note1.Text = "(decimal)";
             // 
-            // note2
-            // 
-            this.note2.AutoSize = true;
-            this.note2.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.note2.Location = new System.Drawing.Point(190, 83);
-            this.note2.Name = "note2";
-            this.note2.Size = new System.Drawing.Size(60, 17);
-            this.note2.TabIndex = 46;
-            this.note2.Text = "(decimal)";
-            // 
-            // note3
-            // 
-            this.note3.AutoSize = true;
-            this.note3.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.note3.Location = new System.Drawing.Point(190, 112);
-            this.note3.Name = "note3";
-            this.note3.Size = new System.Drawing.Size(36, 17);
-            this.note3.TabIndex = 47;
-            this.note3.Text = "(hex)";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::USBPhyRW.Properties.Resources.banner;
-            this.pictureBox1.Location = new System.Drawing.Point(32, 140);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(335, 23);
-            this.pictureBox1.TabIndex = 28;
-            this.pictureBox1.TabStop = false;
-            // 
             // regNotice
             // 
             this.regNotice.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.regNotice.Enabled = false;
             this.regNotice.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.regNotice.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.regNotice.Location = new System.Drawing.Point(18, 234);
+            this.regNotice.Location = new System.Drawing.Point(18, 278);
             this.regNotice.Multiline = true;
             this.regNotice.Name = "regNotice";
             this.regNotice.ReadOnly = true;
-            this.regNotice.Size = new System.Drawing.Size(370, 183);
+            this.regNotice.Size = new System.Drawing.Size(370, 139);
             this.regNotice.TabIndex = 48;
             // 
             // regNoticeBar
@@ -698,9 +788,9 @@
             this.regNoticeBar.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.regNoticeBar.Font = new System.Drawing.Font("Calibri", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.regNoticeBar.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.regNoticeBar.Location = new System.Drawing.Point(12, 209);
+            this.regNoticeBar.Location = new System.Drawing.Point(12, 254);
             this.regNoticeBar.Name = "regNoticeBar";
-            this.regNoticeBar.Size = new System.Drawing.Size(382, 211);
+            this.regNoticeBar.Size = new System.Drawing.Size(382, 166);
             this.regNoticeBar.TabIndex = 49;
             this.regNoticeBar.TabStop = false;
             this.regNoticeBar.Text = "Reg Note";
@@ -722,32 +812,8 @@
             this.ClientSize = new System.Drawing.Size(406, 428);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.regNotice);
-            this.Controls.Add(this.note3);
-            this.Controls.Add(this.note2);
             this.Controls.Add(this.note1);
-            this.Controls.Add(this.bit0);
-            this.Controls.Add(this.bit1);
-            this.Controls.Add(this.bit2);
-            this.Controls.Add(this.bit3);
-            this.Controls.Add(this.bit4);
-            this.Controls.Add(this.bit5);
-            this.Controls.Add(this.bit6);
-            this.Controls.Add(this.bit7);
-            this.Controls.Add(this.bit8);
-            this.Controls.Add(this.bit9);
-            this.Controls.Add(this.bit10);
-            this.Controls.Add(this.bit11);
-            this.Controls.Add(this.bit12);
-            this.Controls.Add(this.bit13);
-            this.Controls.Add(this.bit14);
-            this.Controls.Add(this.bit15);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.writePhy);
             this.Controls.Add(this.readPhy);
-            this.Controls.Add(this.phyValuebox);
-            this.Controls.Add(this.regValue);
-            this.Controls.Add(this.phyRegbox);
-            this.Controls.Add(this.regAddr);
             this.Controls.Add(this.phyAddrbox);
             this.Controls.Add(this.phyAddr);
             this.Controls.Add(this.chipTypeBox);
@@ -762,9 +828,11 @@
             this.MinimizeBox = false;
             this.Name = "MainDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "USBPhyRW(ver:0.1.6)";
+            this.Text = "USBPhyRW （Support RTK 2.5GPHY Build No.20180615）";
             this.menuItem.ResumeLayout(false);
             this.menuItem.PerformLayout();
+            this.ReadWrite.ResumeLayout(false);
+            this.ReadWrite.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -832,6 +900,11 @@
         private System.Windows.Forms.ToolStripMenuItem rTL8201FVBToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rTL8201FVCToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rTL8201FVDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem patchCodeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rTL8226ToolStripMenuItem;
+        private System.Windows.Forms.Label note4;
+        private System.Windows.Forms.TextBox devAdbox;
+        private System.Windows.Forms.Label DEVAD;
     }
 }
 

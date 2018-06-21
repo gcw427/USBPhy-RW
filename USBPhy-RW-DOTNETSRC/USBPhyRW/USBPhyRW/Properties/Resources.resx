@@ -124,6 +124,9 @@
   <data name="banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\banner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="swlogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\swlogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="exitlogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\exitlogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,20 +139,20 @@
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\logo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="swlogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\swlogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="loopbacklogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\loopbacklogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pktgenlogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\pktgenlogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="chipsetlogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\chipsetlogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iollogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\iollogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="usage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\usage.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="usefullogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\usefullogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="chipsetlogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\chipsetlogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="usbsw" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\usbsw.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,8 +163,8 @@
   <data name="pcblogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\pcblogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="loopbacklogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\loopbacklogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pktgenlogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\pktgenlogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="reglogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\reglogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,7 +175,7 @@
   <data name="usblogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\usblogo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iollogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\iollogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cmdl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\cmdl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

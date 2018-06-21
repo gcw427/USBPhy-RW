@@ -80,7 +80,7 @@
             this.fwcode.Name = "fwcode";
             this.fwcode.Size = new System.Drawing.Size(46, 17);
             this.fwcode.TabIndex = 6;
-            this.fwcode.Text = "v 0.1.4";
+            this.fwcode.Text = "v 0.1.7";
             // 
             // checkfwupdate
             // 

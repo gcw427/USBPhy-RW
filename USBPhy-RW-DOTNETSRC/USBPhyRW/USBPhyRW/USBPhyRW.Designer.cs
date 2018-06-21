@@ -33,6 +33,7 @@
             this.SWver = new System.Windows.Forms.Label();
             this.checkupdate = new System.Windows.Forms.Button();
             this.author = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.swlogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             this.vercode.Name = "vercode";
             this.vercode.Size = new System.Drawing.Size(46, 17);
             this.vercode.TabIndex = 7;
-            this.vercode.Text = "v 0.1.6";
+            this.vercode.Text = "v 0.1.8";
             // 
             // SWver
             // 
@@ -88,11 +89,23 @@
             this.author.TabIndex = 9;
             this.author.Text = "By Danza";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(170, 9);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(102, 14);
+            this.linkLabel1.TabIndex = 10;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Github PressHere";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // USBPhyRW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 304);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.author);
             this.Controls.Add(this.checkupdate);
             this.Controls.Add(this.vercode);
@@ -118,5 +131,6 @@
         private System.Windows.Forms.Label SWver;
         private System.Windows.Forms.Button checkupdate;
         private System.Windows.Forms.Label author;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
