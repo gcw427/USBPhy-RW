@@ -116,15 +116,15 @@ void smiInit(void)
 void pulseMdc(void)
 {
 	uint32_t i=0;
-	//GPIO_ResetBits(GPIOB,GPIO_Pin_0);
-	GPIO_SetBits(GPIOB,GPIO_Pin_0);
+	GPIO_ResetBits(GPIOB,GPIO_Pin_0);
+	//GPIO_SetBits(GPIOB,GPIO_Pin_0);
 	//45kHz
 	for(i=0;i<50;i++)
 	{
 		__ASM("NOP");
 	}
-	//GPIO_SetBits(GPIOB,GPIO_Pin_0);
-	GPIO_ResetBits(GPIOB,GPIO_Pin_0);
+	GPIO_SetBits(GPIOB,GPIO_Pin_0);
+	//GPIO_ResetBits(GPIOB,GPIO_Pin_0);
 	for(i=0;i<50;i++)
 	{
 		__ASM("NOP");
@@ -197,6 +197,186 @@ void smiWrite(uint8_t phy, uint8_t reg, uint16_t dat)
 	Delayms(1);
 }
 
+void smiWriteAddr_8226(uint8_t prtad, uint8_t devad, uint16_t address)
+{
+	uint8_t byte;
+  uint16_t word;
+	smiMDIO_CONFIG(OUTPUT);
+	SMI_MDIO_HIGH;
+	for (byte = 0; byte < 32; byte++)
+		pulseMdc();
+	//start code 00
+	SMI_MDIO_LOW;
+	pulseMdc();
+	SMI_MDIO_LOW; 
+	pulseMdc();
+	//Address code  00
+	SMI_MDIO_LOW;
+	pulseMdc();
+	SMI_MDIO_LOW;
+	pulseMdc();
+	//phy addr
+	for (byte=0x10; byte!=0; byte=byte>>1)
+	{
+		if (byte & prtad)
+			SMI_MDIO_HIGH;
+		else
+			SMI_MDIO_LOW;
+		pulseMdc();
+	}
+	//reg addr
+	 for (byte=0x10; byte!=0; byte=byte>>1)
+	{
+		 if (byte & devad)
+			 SMI_MDIO_HIGH;
+		 else
+			 SMI_MDIO_LOW;
+		 pulseMdc();
+	}
+	//turn around -TA 1->0
+	 SMI_MDIO_HIGH;
+	 pulseMdc();
+	 SMI_MDIO_LOW;
+	 pulseMdc();
+	//data 
+	for(word=0x8000; word!=0; word=word>>1)
+	{
+		if (word & address)
+			SMI_MDIO_HIGH;
+		else
+			SMI_MDIO_LOW;
+		pulseMdc();
+	}
+	pulseMdc();
+	//多加7个clk周期 WA for RTL8211E
+/*	pulseMdc();
+	pulseMdc();
+	pulseMdc();
+	pulseMdc();
+	pulseMdc();
+	pulseMdc();*/
+	Delayms(1);
+}
+
+void smiWriteReg_8226(uint8_t prtad, uint8_t devad, uint16_t regdata)
+{
+	uint8_t byte;
+  uint16_t word;
+	smiMDIO_CONFIG(OUTPUT);
+	SMI_MDIO_HIGH;
+	for (byte = 0; byte < 32; byte++)
+		pulseMdc();
+	//start code 00
+	SMI_MDIO_LOW;
+	pulseMdc();
+	SMI_MDIO_LOW; 
+	pulseMdc();
+	//Address code  01
+	SMI_MDIO_LOW;
+	pulseMdc();
+	SMI_MDIO_HIGH;
+	pulseMdc();
+	//phy addr
+	for (byte=0x10; byte!=0; byte=byte>>1)
+	{
+		if (byte & prtad)
+			SMI_MDIO_HIGH;
+		else
+			SMI_MDIO_LOW;
+		pulseMdc();
+	}
+	//reg addr
+	 for (byte=0x10; byte!=0; byte=byte>>1)
+	{
+		 if (byte & devad)
+			 SMI_MDIO_HIGH;
+		 else
+			 SMI_MDIO_LOW;
+		 pulseMdc();
+	}
+	//turn around -TA 1->0
+	 SMI_MDIO_HIGH;
+	 pulseMdc();
+	 SMI_MDIO_LOW;
+	 pulseMdc();
+	//data 
+	for(word=0x8000; word!=0; word=word>>1)
+	{
+		if (word & regdata)
+			SMI_MDIO_HIGH;
+		else
+			SMI_MDIO_LOW;
+		pulseMdc();
+	}
+	pulseMdc();
+	//多加7个clk周期 WA for RTL8211E
+/*	pulseMdc();
+	pulseMdc();
+	pulseMdc();
+	pulseMdc();
+	pulseMdc();
+	pulseMdc();*/
+	Delayms(1);
+}
+
+void smiReadReg_8226(uint8_t prtad, uint8_t devad, uint16_t *regdat)
+{
+	  uint8_t byte;
+    uint16_t word;
+		/* SMI_MDIO pin is output */
+		smiMDIO_CONFIG(OUTPUT);
+		SMI_MDIO_HIGH;
+		for (byte = 0; byte < 32; byte++)
+					pulseMdc();
+		//start code 00
+		SMI_MDIO_LOW;
+		pulseMdc();
+		SMI_MDIO_LOW;
+		pulseMdc();
+		//read code 11
+		SMI_MDIO_HIGH;
+		pulseMdc();
+		SMI_MDIO_HIGH;
+		pulseMdc();
+		//phy addr
+		for (byte=0x10; byte!=0;)
+		{
+				if (byte & prtad)
+					SMI_MDIO_HIGH;
+				else
+					SMI_MDIO_LOW;
+				pulseMdc();
+				byte=byte>>1;	
+		}
+		//reg addr
+		 for (byte=0x10; byte!=0;)
+		{
+				if (byte & devad)
+					SMI_MDIO_HIGH;
+				else
+					SMI_MDIO_LOW;
+				pulseMdc();
+        byte=byte>>1;
+		}
+		//TA
+		smiMDIO_CONFIG(INPUT);
+		pulseMdc();
+    pulseMdc();
+		*regdat = 0;
+		for(word=0x8000; word!=0;)
+		{
+				if(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_1) == Bit_SET)
+						*regdat |= word;
+				pulseMdc();
+				word=word>>1;
+		}
+/*		pulseMdc();
+		pulseMdc();
+		pulseMdc();
+		pulseMdc();
+		pulseMdc();
+		pulseMdc();*/
+}
 //SMIREAD
 //PHYADDR
 //REGADDR
@@ -846,8 +1026,36 @@ int main(void)
 											//FW update TO DO.
 					case 0x01:	break;
 											//GeneralRW 00 read/01 write 
-					case 0x02:	if(data[2] == 0x00){smiRead(data[3],data[4],&rdata);printf("0x%02X ",rdata);data[0] = ((rdata & 0xff00)>>8);data[1] = (rdata & 0x00ff);USB_SendData(data,sizeof(data));}
-											else {wdata = (data[5] <<8) + data[6];smiWrite(data[3],data[4],wdata);}
+					case 0x02:	if(data[2] == 0x00)
+												{
+													if(data[6]<0x0b)
+													{
+														smiRead(data[3],data[4],&rdata);
+														printf("0x%02X ",rdata);data[0] = ((rdata & 0xff00)>>8);data[1] = (rdata & 0x00ff);
+														USB_SendData(data,sizeof(data));
+													}
+													else if(data[6] == 0x0b) //for 2.5G 8226 flow
+													{
+														smiWriteAddr_8226(data[3],data[5],((data[4] <<8) + data[7]));
+														smiReadReg_8226(data[3],data[5],&rdata);
+														printf("0x%02X ",rdata);data[0] = ((rdata & 0xff00)>>8);data[1] = (rdata & 0x00ff);
+														USB_SendData(data,sizeof(data));}
+													}
+											else if(data[2] == 0x01)
+												{
+													if(data[8] < 0x0b)
+													{
+														wdata = (data[5] <<8) + data[6];
+														smiWrite(data[3],data[4],wdata);
+													}
+													else if(data[8] ==0x0b) //for 2.5G 8226 flow
+													{	
+														wdata = (data[5] <<8) + data[6];
+														smiWriteAddr_8226(data[3],data[7],((data[4] << 8) + data[9]));
+														smiWriteReg_8226(data[3],data[7],wdata);
+													}
+													//
+												}
 											break;
 											//IOLcmd;
 					case 0x03:	if(data[2] == 0x01) 			iolMega_ChaA_En(data[3]);
