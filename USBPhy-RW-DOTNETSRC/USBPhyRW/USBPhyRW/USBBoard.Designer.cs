@@ -80,7 +80,7 @@
             this.fwcode.Name = "fwcode";
             this.fwcode.Size = new System.Drawing.Size(46, 17);
             this.fwcode.TabIndex = 6;
-            this.fwcode.Text = "v 0.1.7";
+            this.fwcode.Text = "v 0.1.8";
             // 
             // checkfwupdate
             // 
@@ -129,7 +129,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "USBBoard";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "USBBoard";
             ((System.ComponentModel.ISupportInitialize)(this.pcblogo)).EndInit();
             this.ResumeLayout(false);

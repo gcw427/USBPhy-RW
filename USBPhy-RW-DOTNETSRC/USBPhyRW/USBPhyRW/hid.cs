@@ -181,7 +181,8 @@ namespace HID
         {
             byte[] inputBuff = new byte[InputReportLength];
             //.BeginRead为异步读操作
-            if (hidDevice.Handle != null)                                         //异步回调函数，目测是完成操作后回调
+            //  if (hidDevice.Handle != null)                                         //异步回调函数，目测是完成操作后回调
+            if (hidDevice.SafeFileHandle != null)                                         //异步回调函数，目测是完成操作后回调
                 readResult = hidDevice.BeginRead(inputBuff, 0, InputReportLength, new AsyncCallback(ReadCompleted), inputBuff);
         }
         /// <summary>

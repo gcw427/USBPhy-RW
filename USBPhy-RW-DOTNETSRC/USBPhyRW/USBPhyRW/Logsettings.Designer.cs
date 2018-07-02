@@ -101,7 +101,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Logsettings";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Logsettings";
             ((System.ComponentModel.ISupportInitialize)(this.Loglevel)).EndInit();
             this.ResumeLayout(false);

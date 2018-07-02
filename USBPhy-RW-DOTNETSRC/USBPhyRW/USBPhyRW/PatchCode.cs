@@ -173,7 +173,14 @@ namespace USBPhyRW
                     patchContent.Rows.Remove(patchContent.Rows[0]);
                 }
                 this.patchLabel.Text = "Patch File PATH:";
-                this.patchPATH.Text = choosefile.FileName;     //显示文件路径 
+                if (choosefile.FileName.Length >= 48)
+                {
+                    this.patchPATH.Text = choosefile.FileName.Substring(0, 48) + "\n" + choosefile.FileName.Substring(48);     //显示文件路径 
+                }
+                else
+                {
+                    this.patchPATH.Text = choosefile.FileName;
+                 }
                 string[] patchLine = File.ReadAllLines(choosefile.FileName);
                 //parsing 表格数据到表格里面；
                 for (int i = 0; i < patchLine.Length; i++)

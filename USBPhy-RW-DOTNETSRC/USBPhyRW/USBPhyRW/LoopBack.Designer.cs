@@ -206,7 +206,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LoopBack";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "LoopBack";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoopBack_FormClosed);
             this.ResumeLayout(false);

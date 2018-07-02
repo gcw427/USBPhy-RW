@@ -286,7 +286,7 @@
             // 
             this.usageToolStripMenuItem.Image = global::USBPhyRW.Properties.Resources.usage;
             this.usageToolStripMenuItem.Name = "usageToolStripMenuItem";
-            this.usageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usageToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.usageToolStripMenuItem.Text = "Usage";
             this.usageToolStripMenuItem.Click += new System.EventHandler(this.usageToolStripMenuItem_Click);
             // 
@@ -295,7 +295,7 @@
             this.advancedToolStripMenuItem.Enabled = false;
             this.advancedToolStripMenuItem.Image = global::USBPhyRW.Properties.Resources._lock;
             this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
-            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.advancedToolStripMenuItem.Text = "Advanced";
             // 
             // uSBSettingsToolStripMenuItem
@@ -311,7 +311,7 @@
             // 
             this.uSBsettingsToolStripMenuItem1.Image = global::USBPhyRW.Properties.Resources.usblogo;
             this.uSBsettingsToolStripMenuItem1.Name = "uSBsettingsToolStripMenuItem1";
-            this.uSBsettingsToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.uSBsettingsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.uSBsettingsToolStripMenuItem1.Text = "USBsettings";
             this.uSBsettingsToolStripMenuItem1.Click += new System.EventHandler(this.uSBsettingsToolStripMenuItem1_Click);
             // 
@@ -320,7 +320,7 @@
             this.logsettingsToolStripMenuItem.Enabled = false;
             this.logsettingsToolStripMenuItem.Image = global::USBPhyRW.Properties.Resources.loglogo;
             this.logsettingsToolStripMenuItem.Name = "logsettingsToolStripMenuItem";
-            this.logsettingsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.logsettingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.logsettingsToolStripMenuItem.Text = "Logsettings";
             this.logsettingsToolStripMenuItem.Click += new System.EventHandler(this.logsettingsToolStripMenuItem_Click);
             // 
@@ -337,7 +337,7 @@
             // 
             this.uSBBoardToolStripMenuItem.Image = global::USBPhyRW.Properties.Resources.usbboard;
             this.uSBBoardToolStripMenuItem.Name = "uSBBoardToolStripMenuItem";
-            this.uSBBoardToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.uSBBoardToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.uSBBoardToolStripMenuItem.Text = "USBBoard";
             this.uSBBoardToolStripMenuItem.Click += new System.EventHandler(this.uSBBoardToolStripMenuItem_Click);
             // 
@@ -345,7 +345,7 @@
             // 
             this.uSBPhyRWToolStripMenuItem.Image = global::USBPhyRW.Properties.Resources.usbsw;
             this.uSBPhyRWToolStripMenuItem.Name = "uSBPhyRWToolStripMenuItem";
-            this.uSBPhyRWToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.uSBPhyRWToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.uSBPhyRWToolStripMenuItem.Text = "USBPhyRW";
             this.uSBPhyRWToolStripMenuItem.Click += new System.EventHandler(this.uSBPhyRWToolStripMenuItem_Click);
             // 
@@ -517,6 +517,7 @@
             this.devAdbox.Size = new System.Drawing.Size(80, 25);
             this.devAdbox.TabIndex = 53;
             this.devAdbox.Text = "00";
+            this.devAdbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.devAdbox_KeyPress);
             // 
             // DEVAD
             // 
@@ -828,7 +829,7 @@
             this.MinimizeBox = false;
             this.Name = "MainDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "USBPhyRW （Support RTK 2.5GPHY Build No.20180615）";
+            this.Text = "USBPhyRW-v0.1.20Beta1-BuildDate20180701";
             this.menuItem.ResumeLayout(false);
             this.menuItem.PerformLayout();
             this.ReadWrite.ResumeLayout(false);

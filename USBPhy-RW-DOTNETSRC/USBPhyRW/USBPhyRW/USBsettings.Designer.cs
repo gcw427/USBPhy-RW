@@ -160,7 +160,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "USBsettings";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "USBsettings";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

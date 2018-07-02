@@ -111,6 +111,12 @@
     <Compile Include="PatchCode.Designer.cs">
       <DependentUpon>PatchCode.cs</DependentUpon>
     </Compile>
+    <Compile Include="PatchCode25GPHY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatchCode25GPHY.Designer.cs">
+      <DependentUpon>PatchCode25GPHY.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="USBBoard.cs">
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PatchCode.resx">
       <DependentUpon>PatchCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatchCode25GPHY.resx">
+      <DependentUpon>PatchCode25GPHY.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

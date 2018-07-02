@@ -196,7 +196,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "IolTest";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "IolTest";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.IolTest_FormClosed);
             this.groupBox2.ResumeLayout(false);

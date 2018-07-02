@@ -40,7 +40,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PacketGen";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PacketGen";
             this.ResumeLayout(false);
 

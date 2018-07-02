@@ -43,7 +43,7 @@
             // 
             // loadPatch
             // 
-            this.loadPatch.Location = new System.Drawing.Point(30, 31);
+            this.loadPatch.Location = new System.Drawing.Point(30, 8);
             this.loadPatch.Name = "loadPatch";
             this.loadPatch.Size = new System.Drawing.Size(112, 54);
             this.loadPatch.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             // downLoadPatch
             // 
-            this.downLoadPatch.Location = new System.Drawing.Point(187, 31);
+            this.downLoadPatch.Location = new System.Drawing.Point(187, 8);
             this.downLoadPatch.Name = "downLoadPatch";
             this.downLoadPatch.Size = new System.Drawing.Size(112, 54);
             this.downLoadPatch.TabIndex = 1;
@@ -134,7 +134,7 @@
             // patchPATH
             // 
             this.patchPATH.AutoSize = true;
-            this.patchPATH.Location = new System.Drawing.Point(12, 108);
+            this.patchPATH.Location = new System.Drawing.Point(12, 88);
             this.patchPATH.Name = "patchPATH";
             this.patchPATH.Size = new System.Drawing.Size(0, 14);
             this.patchPATH.TabIndex = 3;
@@ -142,7 +142,7 @@
             // patchLabel
             // 
             this.patchLabel.AutoSize = true;
-            this.patchLabel.Location = new System.Drawing.Point(12, 90);
+            this.patchLabel.Location = new System.Drawing.Point(12, 70);
             this.patchLabel.Name = "patchLabel";
             this.patchLabel.Size = new System.Drawing.Size(0, 14);
             this.patchLabel.TabIndex = 4;
@@ -162,7 +162,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PatchCode";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PatchCode";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PatchCode_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.patchContent)).EndInit();

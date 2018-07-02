@@ -418,7 +418,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DumpReg";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DumpReg";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DumpAllReg_FormClosed);
             this.ResumeLayout(false);

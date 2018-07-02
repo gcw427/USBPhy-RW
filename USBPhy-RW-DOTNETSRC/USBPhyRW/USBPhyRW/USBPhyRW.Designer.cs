@@ -53,9 +53,9 @@
             this.vercode.ForeColor = System.Drawing.Color.Blue;
             this.vercode.Location = new System.Drawing.Point(149, 189);
             this.vercode.Name = "vercode";
-            this.vercode.Size = new System.Drawing.Size(46, 17);
+            this.vercode.Size = new System.Drawing.Size(53, 17);
             this.vercode.TabIndex = 7;
-            this.vercode.Text = "v 0.1.8";
+            this.vercode.Text = "v 0.1.20";
             // 
             // SWver
             // 
@@ -116,7 +116,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "USBPhyRW";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "USBPhyRW";
             ((System.ComponentModel.ISupportInitialize)(this.swlogo)).EndInit();
             this.ResumeLayout(false);

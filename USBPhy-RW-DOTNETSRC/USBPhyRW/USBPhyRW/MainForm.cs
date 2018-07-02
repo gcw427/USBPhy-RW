@@ -160,7 +160,7 @@ namespace USBPhyRW
 
                 iOLTestToolStripMenuItem.Enabled = false;
                 loopBackToolStripMenuItem.Enabled = false;
-                patchCodeToolStripMenuItem.Enabled = false;
+                patchCodeToolStripMenuItem.Enabled = true;
                 dumpAllRegToolStripMenuItem.Enabled = false;
                 usefulCommandToolStripMenuItem.Enabled = false;
 
@@ -684,6 +684,13 @@ namespace USBPhyRW
             else e.Handled = true;
         }
 
+        private void devAdbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar > 0x2F && e.KeyChar < 0x3A) || e.KeyChar == 0x08)
+                e.Handled = false;
+            else e.Handled = true;
+        }
+
 
         //********************************************BCD click begin**************************************//
         private void bit15_Click(object sender, EventArgs e)
@@ -952,14 +959,23 @@ namespace USBPhyRW
         private void patchCodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             closeDevice();
-            PatchCode patchcode = new PatchCode();
-            patchcode.ShowDialog();
+            if (chipids < 0x0b)
+            {
+                PatchCode patchcode = new PatchCode();
+                patchcode.ShowDialog();
+            }
+            else if (chipids == 0x0b)
+            {
+                PatchCode25GPHY patchcode25gphy = new PatchCode25GPHY();
+                patchcode25gphy.ShowDialog();
+            }
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             closeDevice();
             Application.Exit();
         }
+
 
     }
 }

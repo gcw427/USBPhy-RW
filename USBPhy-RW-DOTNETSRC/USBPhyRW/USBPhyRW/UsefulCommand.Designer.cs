@@ -64,7 +64,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UsefulCommand";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "UsefulCommand";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UsefulCommand_FormClosed);
             this.ResumeLayout(false);
