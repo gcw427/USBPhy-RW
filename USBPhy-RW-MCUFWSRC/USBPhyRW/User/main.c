@@ -6,7 +6,7 @@
 #include "usbio.h"
 
 extern uint8_t USB_Received_Flag;
-#define FWVer v014
+#define FWVer v018
 //define pins
 #define HIGH		1
 #define LOW			0
@@ -132,6 +132,38 @@ void pulseMdc(void)
 	GPIO_SetBits(GPIOB,GPIO_Pin_0);
 }
 
+
+void delay_us(uint32_t time)
+{
+	uint32_t i=8*time;
+	while(i--);
+}
+
+void delay_usx(uint32_t time)
+{
+	uint32_t i=1*time;
+	while(i--);
+}
+void pulseMdc8226(void)
+{
+	//uint32_t i=0;
+	GPIO_ResetBits(GPIOB,GPIO_Pin_0);
+	//GPIO_SetBits(GPIOB,GPIO_Pin_0);
+	/*for(i=0;i<5;i++)
+	{
+		__ASM("NOP");
+	}*/
+	delay_us(1);
+	GPIO_SetBits(GPIOB,GPIO_Pin_0);
+	//GPIO_ResetBits(GPIOB,GPIO_Pin_0);
+	/*for(i=0;i<1;i++)
+	{
+		__ASM("NOP");
+	}*/
+	delay_usx(1);
+	//GPIO_SetBits(GPIOB,GPIO_Pin_0);
+}
+
 //SMIWRITE
 //PHYADDR
 //REGADDR
@@ -204,17 +236,17 @@ void smiWriteAddr_8226(uint8_t prtad, uint8_t devad, uint16_t address)
 	smiMDIO_CONFIG(OUTPUT);
 	SMI_MDIO_HIGH;
 	for (byte = 0; byte < 32; byte++)
-		pulseMdc();
+		pulseMdc8226();
 	//start code 00
 	SMI_MDIO_LOW;
-	pulseMdc();
+	pulseMdc8226();
 	SMI_MDIO_LOW; 
-	pulseMdc();
+	pulseMdc8226();
 	//Address code  00
 	SMI_MDIO_LOW;
-	pulseMdc();
+	pulseMdc8226();
 	SMI_MDIO_LOW;
-	pulseMdc();
+	pulseMdc8226();
 	//phy addr
 	for (byte=0x10; byte!=0; byte=byte>>1)
 	{
@@ -222,7 +254,7 @@ void smiWriteAddr_8226(uint8_t prtad, uint8_t devad, uint16_t address)
 			SMI_MDIO_HIGH;
 		else
 			SMI_MDIO_LOW;
-		pulseMdc();
+		pulseMdc8226();
 	}
 	//reg addr
 	 for (byte=0x10; byte!=0; byte=byte>>1)
@@ -231,13 +263,13 @@ void smiWriteAddr_8226(uint8_t prtad, uint8_t devad, uint16_t address)
 			 SMI_MDIO_HIGH;
 		 else
 			 SMI_MDIO_LOW;
-		 pulseMdc();
+		 pulseMdc8226();
 	}
 	//turn around -TA 1->0
 	 SMI_MDIO_HIGH;
-	 pulseMdc();
+	 pulseMdc8226();
 	 SMI_MDIO_LOW;
-	 pulseMdc();
+	 pulseMdc8226();
 	//data 
 	for(word=0x8000; word!=0; word=word>>1)
 	{
@@ -245,9 +277,9 @@ void smiWriteAddr_8226(uint8_t prtad, uint8_t devad, uint16_t address)
 			SMI_MDIO_HIGH;
 		else
 			SMI_MDIO_LOW;
-		pulseMdc();
+		pulseMdc8226();
 	}
-	pulseMdc();
+	pulseMdc8226();
 	//多加7个clk周期 WA for RTL8211E
 /*	pulseMdc();
 	pulseMdc();
@@ -255,7 +287,7 @@ void smiWriteAddr_8226(uint8_t prtad, uint8_t devad, uint16_t address)
 	pulseMdc();
 	pulseMdc();
 	pulseMdc();*/
-	Delayms(1);
+	//Delayms(1);
 }
 
 void smiWriteReg_8226(uint8_t prtad, uint8_t devad, uint16_t regdata)
@@ -265,17 +297,17 @@ void smiWriteReg_8226(uint8_t prtad, uint8_t devad, uint16_t regdata)
 	smiMDIO_CONFIG(OUTPUT);
 	SMI_MDIO_HIGH;
 	for (byte = 0; byte < 32; byte++)
-		pulseMdc();
+		pulseMdc8226();
 	//start code 00
 	SMI_MDIO_LOW;
-	pulseMdc();
+	pulseMdc8226();
 	SMI_MDIO_LOW; 
-	pulseMdc();
+	pulseMdc8226();
 	//Address code  01
 	SMI_MDIO_LOW;
-	pulseMdc();
+	pulseMdc8226();
 	SMI_MDIO_HIGH;
-	pulseMdc();
+	pulseMdc8226();
 	//phy addr
 	for (byte=0x10; byte!=0; byte=byte>>1)
 	{
@@ -283,7 +315,7 @@ void smiWriteReg_8226(uint8_t prtad, uint8_t devad, uint16_t regdata)
 			SMI_MDIO_HIGH;
 		else
 			SMI_MDIO_LOW;
-		pulseMdc();
+		pulseMdc8226();
 	}
 	//reg addr
 	 for (byte=0x10; byte!=0; byte=byte>>1)
@@ -292,13 +324,13 @@ void smiWriteReg_8226(uint8_t prtad, uint8_t devad, uint16_t regdata)
 			 SMI_MDIO_HIGH;
 		 else
 			 SMI_MDIO_LOW;
-		 pulseMdc();
+		 pulseMdc8226();
 	}
 	//turn around -TA 1->0
 	 SMI_MDIO_HIGH;
-	 pulseMdc();
+	 pulseMdc8226();
 	 SMI_MDIO_LOW;
-	 pulseMdc();
+	 pulseMdc8226();
 	//data 
 	for(word=0x8000; word!=0; word=word>>1)
 	{
@@ -306,9 +338,9 @@ void smiWriteReg_8226(uint8_t prtad, uint8_t devad, uint16_t regdata)
 			SMI_MDIO_HIGH;
 		else
 			SMI_MDIO_LOW;
-		pulseMdc();
+		pulseMdc8226();
 	}
-	pulseMdc();
+	pulseMdc8226();
 	//多加7个clk周期 WA for RTL8211E
 /*	pulseMdc();
 	pulseMdc();
@@ -316,7 +348,7 @@ void smiWriteReg_8226(uint8_t prtad, uint8_t devad, uint16_t regdata)
 	pulseMdc();
 	pulseMdc();
 	pulseMdc();*/
-	Delayms(1);
+	//Delayms(1);
 }
 
 void smiReadReg_8226(uint8_t prtad, uint8_t devad, uint16_t *regdat)
@@ -327,17 +359,17 @@ void smiReadReg_8226(uint8_t prtad, uint8_t devad, uint16_t *regdat)
 		smiMDIO_CONFIG(OUTPUT);
 		SMI_MDIO_HIGH;
 		for (byte = 0; byte < 32; byte++)
-					pulseMdc();
+					pulseMdc8226();
 		//start code 00
 		SMI_MDIO_LOW;
-		pulseMdc();
+		pulseMdc8226();
 		SMI_MDIO_LOW;
-		pulseMdc();
+		pulseMdc8226();
 		//read code 11
 		SMI_MDIO_HIGH;
-		pulseMdc();
+		pulseMdc8226();
 		SMI_MDIO_HIGH;
-		pulseMdc();
+		pulseMdc8226();
 		//phy addr
 		for (byte=0x10; byte!=0;)
 		{
@@ -345,7 +377,7 @@ void smiReadReg_8226(uint8_t prtad, uint8_t devad, uint16_t *regdat)
 					SMI_MDIO_HIGH;
 				else
 					SMI_MDIO_LOW;
-				pulseMdc();
+				pulseMdc8226();
 				byte=byte>>1;	
 		}
 		//reg addr
@@ -355,19 +387,19 @@ void smiReadReg_8226(uint8_t prtad, uint8_t devad, uint16_t *regdat)
 					SMI_MDIO_HIGH;
 				else
 					SMI_MDIO_LOW;
-				pulseMdc();
+				pulseMdc8226();
         byte=byte>>1;
 		}
 		//TA
 		smiMDIO_CONFIG(INPUT);
-		pulseMdc();
-    pulseMdc();
+		pulseMdc8226();
+    pulseMdc8226();
 		*regdat = 0;
 		for(word=0x8000; word!=0;)
 		{
 				if(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_1) == Bit_SET)
 						*regdat |= word;
-				pulseMdc();
+				pulseMdc8226();
 				word=word>>1;
 		}
 /*		pulseMdc();
@@ -376,6 +408,28 @@ void smiReadReg_8226(uint8_t prtad, uint8_t devad, uint16_t *regdat)
 		pulseMdc();
 		pulseMdc();
 		pulseMdc();*/
+}
+
+//write 1
+void smiSetBit_8226(uint8_t prtad, uint8_t devad, uint16_t address,uint8_t bit)
+{
+	uint16_t rxdata;
+	smiWriteAddr_8226(prtad,devad,address);
+	smiReadReg_8226(prtad,devad,&rxdata); 
+	Delayms(1);
+	smiWriteAddr_8226(prtad,devad,address);
+	smiWriteReg_8226(prtad,devad,(rxdata | (1<<bit)));
+}
+
+//write 0
+void smiResetBit_8226(uint8_t prtad, uint8_t devad, uint16_t address,uint8_t bit)
+{
+	uint16_t rydata;
+	smiWriteAddr_8226(prtad,devad,address);
+	smiReadReg_8226(prtad,devad,&rydata); 
+	Delayms(1);
+	smiWriteAddr_8226(prtad,devad,address);
+	smiWriteReg_8226(prtad,devad,(rydata & (~(1<<bit))));
 }
 //SMIREAD
 //PHYADDR
@@ -1056,6 +1110,19 @@ int main(void)
 													}
 													//
 												}
+											break;
+												//set reg bit 0 or 1
+					case 0x06:  if(data[2]==0x00) //setbit
+												{
+													if(data[7] == 0x0b)
+															smiSetBit_8226(data[3],data[6],((data[4] <<8) + data[9]),data[5]);
+												}
+					
+											else if(data[2] == 0x01) //reset bit
+											{
+												if(data[7] == 0x0b)
+															smiResetBit_8226(data[3],data[6],((data[4] <<8) + data[9]),data[5]);
+											}
 											break;
 											//IOLcmd;
 					case 0x03:	if(data[2] == 0x01) 			iolMega_ChaA_En(data[3]);

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Output\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Output\Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Fri Jun 15 15:44:06 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Sun Jul 01 17:45:33 2018
 <BR><P>
 <H3>Maximum Stack Usage =        260 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -16,6 +16,7 @@ Mutually Recursive functions
  <LI><a href="#[12]">HardFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[12]">HardFault_Handler</a><BR>
  <LI><a href="#[13]">MemManage_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[13]">MemManage_Handler</a><BR>
  <LI><a href="#[15]">UsageFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[15]">UsageFault_Handler</a><BR>
+ <LI><a href="#[bd]">delay_usx</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[bd]">delay_usx</a><BR>
 </UL>
 <P>
 <H3>
@@ -125,7 +126,7 @@ Global Symbols
 <P><STRONG><a name="[58]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(.text)
 </UL>
-<P><STRONG><a name="[e2]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[e7]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[60]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -135,15 +136,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[e3]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[e8]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[e4]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[e9]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[e5]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[ea]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[e6]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[eb]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[e7]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[ec]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[10]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32f10x_hd.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
@@ -342,23 +343,23 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[e8]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[ed]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[64]"></a>__aeabi_llsl</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
 
-<P><STRONG><a name="[e9]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
+<P><STRONG><a name="[ee]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
 
 <P><STRONG><a name="[63]"></a>__aeabi_llsr</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
 
-<P><STRONG><a name="[ea]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
+<P><STRONG><a name="[ef]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
 
-<P><STRONG><a name="[eb]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[f0]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
-<P><STRONG><a name="[ec]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[f1]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
 <P><STRONG><a name="[66]"></a>BlinkDataLed</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, main.o(i.BlinkDataLed))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = BlinkDataLed
@@ -490,14 +491,14 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
 <P><STRONG><a name="[68]"></a>Delayms</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, main.o(i.Delayms))
-<BR><BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteReg_8226
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteAddr_8226
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phyHwRST
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_PCS_En
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_PCS_En
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_PCS_En
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_MDI_En
+<BR><BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiSetBit_8226
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiResetBit_8226
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phyHwRST
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_PCS_En
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_PCS_En
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_PCS_En
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_MDI_En
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dataLED_CONFIG
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BlinkDataLed
 </UL>
@@ -533,29 +534,30 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_System
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GPIO_Configuration
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDIO_CONFIG
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDC_CONFIG
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phyRST_CONFIG
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDIO_CONFIG
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDC_CONFIG
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phyRST_CONFIG
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dataLED_CONFIG
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Cable_Config2
 </UL>
 
-<P><STRONG><a name="[e1]"></a>GPIO_ReadInputDataBit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ReadInputDataBit))
-<BR><BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiReadReg_8226
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiRead
+<P><STRONG><a name="[e6]"></a>GPIO_ReadInputDataBit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ReadInputDataBit))
+<BR><BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiReadReg_8226
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiRead
 </UL>
 
 <P><STRONG><a name="[67]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_ResetBits))
 <BR><BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Cable_Config
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_System
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteReg_8226
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteAddr_8226
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiReadReg_8226
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiRead
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDC_CONFIG
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phyHwRST
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteReg_8226
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteAddr_8226
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiReadReg_8226
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiRead
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDC_CONFIG
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc8226
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phyHwRST
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dataLED_CONFIG
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Cable_Config2
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BlinkDataLed
@@ -563,15 +565,16 @@ Global Symbols
 
 <P><STRONG><a name="[69]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(i.GPIO_SetBits))
 <BR><BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Cable_Config
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteReg_8226
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteAddr_8226
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiReadReg_8226
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiRead
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiInit
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phyRST_CONFIG
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phyHwRST
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteReg_8226
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteAddr_8226
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiReadReg_8226
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiRead
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiInit
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc8226
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phyRST_CONFIG
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phyHwRST
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dataLED_CONFIG
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Cable_Config2
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BlinkDataLed
@@ -682,9 +685,9 @@ Global Symbols
 <P><STRONG><a name="[a0]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd))
 <BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_System
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_RCC_Configuration
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDIO_CONFIG
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDC_CONFIG
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phyRST_CONFIG
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDIO_CONFIG
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDC_CONFIG
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phyRST_CONFIG
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dataLED_CONFIG
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Cable_Config2
 </UL>
@@ -962,7 +965,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
 </UL>
 
-<P><STRONG><a name="[be]"></a>USART_GetFlagStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f10x_usart.o(i.USART_GetFlagStatus))
+<P><STRONG><a name="[bf]"></a>USART_GetFlagStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f10x_usart.o(i.USART_GetFlagStatus))
 <BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
 </UL>
 
@@ -980,7 +983,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
 </UL>
 
-<P><STRONG><a name="[bd]"></a>USART_SendData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_usart.o(i.USART_SendData))
+<P><STRONG><a name="[be]"></a>USART_SendData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_usart.o(i.USART_SendData))
 <BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
 </UL>
 
@@ -1002,13 +1005,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d7]"></a>USB_GetData</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, usbio.o(i.USB_GetData))
+<P><STRONG><a name="[d8]"></a>USB_GetData</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, usbio.o(i.USB_GetData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USB_GetData
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d4]"></a>USB_Init</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, usb_init.o(i.USB_Init))
+<P><STRONG><a name="[d5]"></a>USB_Init</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, usb_init.o(i.USB_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1071,19 +1074,19 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[ed]"></a>__1printf$8</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf8.o(i.__0printf$8), UNUSED)
+<P><STRONG><a name="[f2]"></a>__1printf$8</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf8.o(i.__0printf$8), UNUSED)
 
-<P><STRONG><a name="[d3]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf8.o(i.__0printf$8))
+<P><STRONG><a name="[d4]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf8.o(i.__0printf$8))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ee]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[f3]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[ef]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[f4]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[f0]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[f5]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
 <P><STRONG><a name="[bb]"></a>acknowledge</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, main.o(i.acknowledge))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = acknowledge &rArr; USB_SendData &rArr; UserToPMABufferCopy
@@ -1105,209 +1108,222 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
+<P><STRONG><a name="[e3]"></a>delay_us</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(i.delay_us))
+<BR><BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc8226
+</UL>
+
+<P><STRONG><a name="[bd]"></a>delay_usx</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, main.o(i.delay_usx))
+<BR><BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_usx
+</UL>
+<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc8226
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_usx
+</UL>
+
 <P><STRONG><a name="[5f]"></a>fputc</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, usart.o(i.fputc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = fputc
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetFlagStatus
+<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetFlagStatus
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> printf8.o(i.__0printf$8)
 </UL>
-<P><STRONG><a name="[bf]"></a>iolGiga_TestMode1_Dis</STRONG> (Thumb, 162 bytes, Stack size 8 bytes, main.o(i.iolGiga_TestMode1_Dis))
+<P><STRONG><a name="[c0]"></a>iolGiga_TestMode1_Dis</STRONG> (Thumb, 162 bytes, Stack size 8 bytes, main.o(i.iolGiga_TestMode1_Dis))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = iolGiga_TestMode1_Dis &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c1]"></a>iolGiga_TestMode1_En</STRONG> (Thumb, 146 bytes, Stack size 16 bytes, main.o(i.iolGiga_TestMode1_En))
+<P><STRONG><a name="[c2]"></a>iolGiga_TestMode1_En</STRONG> (Thumb, 146 bytes, Stack size 16 bytes, main.o(i.iolGiga_TestMode1_En))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = iolGiga_TestMode1_En &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c2]"></a>iolGiga_TestMode2_Dis</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, main.o(i.iolGiga_TestMode2_Dis))
+<P><STRONG><a name="[c3]"></a>iolGiga_TestMode2_Dis</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, main.o(i.iolGiga_TestMode2_Dis))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = iolGiga_TestMode2_Dis &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c3]"></a>iolGiga_TestMode2_En</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, main.o(i.iolGiga_TestMode2_En))
+<P><STRONG><a name="[c4]"></a>iolGiga_TestMode2_En</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, main.o(i.iolGiga_TestMode2_En))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = iolGiga_TestMode2_En &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c4]"></a>iolGiga_TestMode4_Dis</STRONG> (Thumb, 136 bytes, Stack size 8 bytes, main.o(i.iolGiga_TestMode4_Dis))
+<P><STRONG><a name="[c5]"></a>iolGiga_TestMode4_Dis</STRONG> (Thumb, 136 bytes, Stack size 8 bytes, main.o(i.iolGiga_TestMode4_Dis))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = iolGiga_TestMode4_Dis &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c5]"></a>iolMega_ChaA_En</STRONG> (Thumb, 422 bytes, Stack size 40 bytes, main.o(i.iolMega_ChaA_En))
+<P><STRONG><a name="[c6]"></a>iolMega_ChaA_En</STRONG> (Thumb, 422 bytes, Stack size 40 bytes, main.o(i.iolMega_ChaA_En))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = iolMega_ChaA_En &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c6]"></a>iolMega_ChaB_En</STRONG> (Thumb, 422 bytes, Stack size 40 bytes, main.o(i.iolMega_ChaB_En))
+<P><STRONG><a name="[c7]"></a>iolMega_ChaB_En</STRONG> (Thumb, 422 bytes, Stack size 40 bytes, main.o(i.iolMega_ChaB_En))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = iolMega_ChaB_En &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c7]"></a>lpGiga_MDI_Dis</STRONG> (Thumb, 358 bytes, Stack size 40 bytes, main.o(i.lpGiga_MDI_Dis))
+<P><STRONG><a name="[c8]"></a>lpGiga_MDI_Dis</STRONG> (Thumb, 358 bytes, Stack size 40 bytes, main.o(i.lpGiga_MDI_Dis))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = lpGiga_MDI_Dis &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c8]"></a>lpGiga_MDI_En</STRONG> (Thumb, 680 bytes, Stack size 40 bytes, main.o(i.lpGiga_MDI_En))
+<P><STRONG><a name="[c9]"></a>lpGiga_MDI_En</STRONG> (Thumb, 680 bytes, Stack size 40 bytes, main.o(i.lpGiga_MDI_En))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = lpGiga_MDI_En &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delayms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c9]"></a>lpGiga_PCS_Dis</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, main.o(i.lpGiga_PCS_Dis))
+<P><STRONG><a name="[ca]"></a>lpGiga_PCS_Dis</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, main.o(i.lpGiga_PCS_Dis))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = lpGiga_PCS_Dis &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ca]"></a>lpGiga_PCS_En</STRONG> (Thumb, 124 bytes, Stack size 16 bytes, main.o(i.lpGiga_PCS_En))
+<P><STRONG><a name="[cb]"></a>lpGiga_PCS_En</STRONG> (Thumb, 124 bytes, Stack size 16 bytes, main.o(i.lpGiga_PCS_En))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = lpGiga_PCS_En &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delayms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[cb]"></a>lpMega_MDI_Dis</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, main.o(i.lpMega_MDI_Dis))
+<P><STRONG><a name="[cc]"></a>lpMega_MDI_Dis</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, main.o(i.lpMega_MDI_Dis))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = lpMega_MDI_Dis &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[cc]"></a>lpMega_MDI_En</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, main.o(i.lpMega_MDI_En))
+<P><STRONG><a name="[cd]"></a>lpMega_MDI_En</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, main.o(i.lpMega_MDI_En))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = lpMega_MDI_En &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[cd]"></a>lpMega_PCS_Dis</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, main.o(i.lpMega_PCS_Dis))
+<P><STRONG><a name="[ce]"></a>lpMega_PCS_Dis</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, main.o(i.lpMega_PCS_Dis))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = lpMega_PCS_Dis &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ce]"></a>lpMega_PCS_En</STRONG> (Thumb, 168 bytes, Stack size 16 bytes, main.o(i.lpMega_PCS_En))
+<P><STRONG><a name="[cf]"></a>lpMega_PCS_En</STRONG> (Thumb, 168 bytes, Stack size 16 bytes, main.o(i.lpMega_PCS_En))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = lpMega_PCS_En &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delayms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[cf]"></a>lpTen_MDI_Dis</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, main.o(i.lpTen_MDI_Dis))
+<P><STRONG><a name="[d0]"></a>lpTen_MDI_Dis</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, main.o(i.lpTen_MDI_Dis))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = lpTen_MDI_Dis &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d0]"></a>lpTen_MDI_En</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, main.o(i.lpTen_MDI_En))
+<P><STRONG><a name="[d1]"></a>lpTen_MDI_En</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, main.o(i.lpTen_MDI_En))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = lpTen_MDI_En &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d1]"></a>lpTen_PCS_Dis</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, main.o(i.lpTen_PCS_Dis))
+<P><STRONG><a name="[d2]"></a>lpTen_PCS_Dis</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, main.o(i.lpTen_PCS_Dis))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = lpTen_PCS_Dis &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d2]"></a>lpTen_PCS_En</STRONG> (Thumb, 168 bytes, Stack size 16 bytes, main.o(i.lpTen_PCS_En))
+<P><STRONG><a name="[d3]"></a>lpTen_PCS_En</STRONG> (Thumb, 168 bytes, Stack size 16 bytes, main.o(i.lpTen_PCS_En))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = lpTen_PCS_En &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delayms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[56]"></a>main</STRONG> (Thumb, 800 bytes, Stack size 160 bytes, main.o(i.main))
+<P><STRONG><a name="[56]"></a>main</STRONG> (Thumb, 892 bytes, Stack size 160 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 260<LI>Call Chain = main &rArr; lpGiga_MDI_En &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_SendData
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetData
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_GetData
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Interrupts_Config
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_USBClock
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Set_System
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Init
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Init
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteReg_8226
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteAddr_8226
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiReadReg_8226
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiRead
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiInit
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phySwRST
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phyRST_CONFIG
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phyHwRST
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_PCS_En
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_PCS_Dis
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_MDI_En
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_MDI_Dis
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_PCS_En
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_PCS_Dis
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_MDI_En
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_MDI_Dis
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_PCS_En
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_PCS_Dis
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_MDI_En
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_MDI_Dis
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolMega_ChaB_En
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolMega_ChaA_En
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode4_Dis
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode2_En
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode2_Dis
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode1_En
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode1_Dis
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteReg_8226
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteAddr_8226
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiSetBit_8226
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiResetBit_8226
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiReadReg_8226
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiRead
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiInit
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phySwRST
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phyRST_CONFIG
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phyHwRST
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_PCS_En
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_PCS_Dis
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_MDI_En
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_MDI_Dis
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_PCS_En
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_PCS_Dis
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_MDI_En
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_MDI_Dis
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_PCS_En
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_PCS_Dis
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_MDI_En
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_MDI_Dis
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolMega_ChaB_En
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolMega_ChaA_En
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode4_Dis
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode2_En
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode2_Dis
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode1_En
+<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode1_Dis
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dataLED_CONFIG
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;acknowledge
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_Cable_Config2
@@ -1315,7 +1331,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[d9]"></a>phyHwRST</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, main.o(i.phyHwRST))
+<P><STRONG><a name="[da]"></a>phyHwRST</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, main.o(i.phyHwRST))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = phyHwRST
 </UL>
 <BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
@@ -1325,7 +1341,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d6]"></a>phyRST_CONFIG</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, main.o(i.phyRST_CONFIG))
+<P><STRONG><a name="[d7]"></a>phyRST_CONFIG</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, main.o(i.phyRST_CONFIG))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = phyRST_CONFIG &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
@@ -1335,141 +1351,177 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d8]"></a>phySwRST</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, main.o(i.phySwRST))
+<P><STRONG><a name="[d9]"></a>phySwRST</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, main.o(i.phySwRST))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = phySwRST &rArr; smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiRead
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiRead
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[de]"></a>pulseMdc</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, main.o(i.pulseMdc))
+<P><STRONG><a name="[e1]"></a>pulseMdc</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, main.o(i.pulseMdc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = pulseMdc
 </UL>
 <BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteReg_8226
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteAddr_8226
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiReadReg_8226
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiRead
+<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiRead
 </UL>
 
-<P><STRONG><a name="[d5]"></a>smiInit</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, main.o(i.smiInit))
+<P><STRONG><a name="[e2]"></a>pulseMdc8226</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, main.o(i.pulseMdc8226))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = pulseMdc8226
+</UL>
+<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_usx
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+</UL>
+<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteReg_8226
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteAddr_8226
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiReadReg_8226
+</UL>
+
+<P><STRONG><a name="[d6]"></a>smiInit</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, main.o(i.smiInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = smiInit &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDIO_CONFIG
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDC_CONFIG
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDIO_CONFIG
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDC_CONFIG
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[df]"></a>smiMDC_CONFIG</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, main.o(i.smiMDC_CONFIG))
+<P><STRONG><a name="[e4]"></a>smiMDC_CONFIG</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, main.o(i.smiMDC_CONFIG))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = smiMDC_CONFIG &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiInit
+<BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiInit
 </UL>
 
-<P><STRONG><a name="[e0]"></a>smiMDIO_CONFIG</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, main.o(i.smiMDIO_CONFIG))
+<P><STRONG><a name="[e5]"></a>smiMDIO_CONFIG</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, main.o(i.smiMDIO_CONFIG))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteReg_8226
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteAddr_8226
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiReadReg_8226
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiRead
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiInit
+<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteReg_8226
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteAddr_8226
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWrite
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiReadReg_8226
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiRead
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiInit
 </UL>
 
-<P><STRONG><a name="[da]"></a>smiRead</STRONG> (Thumb, 234 bytes, Stack size 24 bytes, main.o(i.smiRead))
+<P><STRONG><a name="[db]"></a>smiRead</STRONG> (Thumb, 234 bytes, Stack size 24 bytes, main.o(i.smiRead))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = smiRead &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDIO_CONFIG
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDIO_CONFIG
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phySwRST
+<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phySwRST
 <LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[dc]"></a>smiReadReg_8226</STRONG> (Thumb, 206 bytes, Stack size 24 bytes, main.o(i.smiReadReg_8226))
+<P><STRONG><a name="[dd]"></a>smiReadReg_8226</STRONG> (Thumb, 206 bytes, Stack size 24 bytes, main.o(i.smiReadReg_8226))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = smiReadReg_8226 &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDIO_CONFIG
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDIO_CONFIG
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc8226
+</UL>
+<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiSetBit_8226
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiResetBit_8226
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[df]"></a>smiResetBit_8226</STRONG> (Thumb, 60 bytes, Stack size 24 bytes, main.o(i.smiResetBit_8226))
+<BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = smiResetBit_8226 &rArr; smiWriteReg_8226 &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteReg_8226
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteAddr_8226
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiReadReg_8226
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delayms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c0]"></a>smiWrite</STRONG> (Thumb, 248 bytes, Stack size 24 bytes, main.o(i.smiWrite))
+<P><STRONG><a name="[e0]"></a>smiSetBit_8226</STRONG> (Thumb, 62 bytes, Stack size 24 bytes, main.o(i.smiSetBit_8226))
+<BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = smiSetBit_8226 &rArr; smiWriteReg_8226 &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteReg_8226
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiWriteAddr_8226
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiReadReg_8226
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delayms
+</UL>
+<BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[c1]"></a>smiWrite</STRONG> (Thumb, 248 bytes, Stack size 24 bytes, main.o(i.smiWrite))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = smiWrite &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDIO_CONFIG
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDIO_CONFIG
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delayms
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phySwRST
+<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;phySwRST
 <LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_PCS_En
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_PCS_Dis
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_MDI_En
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_MDI_Dis
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_PCS_En
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_PCS_Dis
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_MDI_En
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_MDI_Dis
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_PCS_En
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_PCS_Dis
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_MDI_En
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_MDI_Dis
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolMega_ChaB_En
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolMega_ChaA_En
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode4_Dis
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode2_En
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode2_Dis
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode1_En
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode1_Dis
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_PCS_En
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_PCS_Dis
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_MDI_En
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpTen_MDI_Dis
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_PCS_En
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_PCS_Dis
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_MDI_En
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpMega_MDI_Dis
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_PCS_En
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_PCS_Dis
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_MDI_En
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpGiga_MDI_Dis
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolMega_ChaB_En
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolMega_ChaA_En
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode4_Dis
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode2_En
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode2_Dis
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode1_En
+<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iolGiga_TestMode1_Dis
 </UL>
 
-<P><STRONG><a name="[db]"></a>smiWriteAddr_8226</STRONG> (Thumb, 224 bytes, Stack size 24 bytes, main.o(i.smiWriteAddr_8226))
+<P><STRONG><a name="[dc]"></a>smiWriteAddr_8226</STRONG> (Thumb, 218 bytes, Stack size 24 bytes, main.o(i.smiWriteAddr_8226))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = smiWriteAddr_8226 &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDIO_CONFIG
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delayms
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDIO_CONFIG
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc8226
 </UL>
-<BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiSetBit_8226
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiResetBit_8226
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[dd]"></a>smiWriteReg_8226</STRONG> (Thumb, 224 bytes, Stack size 24 bytes, main.o(i.smiWriteReg_8226))
+<P><STRONG><a name="[de]"></a>smiWriteReg_8226</STRONG> (Thumb, 218 bytes, Stack size 24 bytes, main.o(i.smiWriteReg_8226))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = smiWriteReg_8226 &rArr; smiMDIO_CONFIG &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDIO_CONFIG
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delayms
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiMDIO_CONFIG
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pulseMdc8226
 </UL>
-<BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiSetBit_8226
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smiResetBit_8226
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 <P>
 <H3>
