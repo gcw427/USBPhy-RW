@@ -334,6 +334,7 @@ namespace USBPhyRW
                 LDPatchCode1PATH = choosefile.FileName;
                 dbgshow.Text = LDPatchCode1PATH;
                 LDPatchCode2.Enabled = true;
+                //ApplyAll.Enabled = true; //debug 20180714
             }
         }
 
@@ -573,9 +574,9 @@ namespace USBPhyRW
                     }
                     else if (patchcfgLine[i].Substring(8, 3) == "rst")
                     {
-                        PatchSetBit((Convert.ToUInt16(patchcfgLine[i].Substring(0, 6), 16)), (Convert.ToByte(patchcfgLine[i].Substring(12, 2), 16)));
+                        PatchResetBit((Convert.ToUInt16(patchcfgLine[i].Substring(0, 6), 16)), (Convert.ToByte(patchcfgLine[i].Substring(12, 2), 16)));
                     }
-                    System.Threading.Thread.Sleep(100);
+                    System.Threading.Thread.Sleep(500);
                     patchDetailProgress.CurrentCell = patchDetailProgress.Rows[patchseqNumCurrent].Cells[0];
                     patchseqNumCurrent++;
                     this.patchProgress.Rows[GridRows].Selected = true;
@@ -806,7 +807,7 @@ namespace USBPhyRW
                 //Issue code
                 ExcutePatchCFG(LDPatchCode8PATH, 0x0b, 0x07);
                 //PHYRST & Restart nway
-                PatchWrite(0xA400,0x9200); 
+                PatchWrite(0xA400,0x9200);  
             }
             else
                 {
